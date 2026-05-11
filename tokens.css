@@ -3,6 +3,74 @@
    Single source of truth. Mirrors the in-page Tailwind config + :root vars.
    ========================================================================== */
 
+/* ==========================================================================
+   Pretendard — self-hosted, KR subset
+   Guarantees identical typography across all environments (no CDN dependency).
+   ========================================================================== */
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-Thin.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-ExtraLight.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-Light.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-Regular.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-Medium.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-SemiBold.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-Bold.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-ExtraBold.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/Pretendard-Black.subset.woff2') format('woff2');
+}
+
 :root {
   /* ---------- BRAND COLOR (cyan-teal) ---------- */
   --primary-50:  #e6f4fa;
@@ -65,7 +133,7 @@
   --info-500:  var(--primary-500);
 
   /* ---------- TYPE — base ---------- */
-  --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont,
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont,
                system-ui, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
                'Malgun Gothic', sans-serif;
   --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
@@ -155,7 +223,6 @@ html, body {
   background: var(--bg-page);
   color: var(--fg-1);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   word-break: keep-all;
 }
 
