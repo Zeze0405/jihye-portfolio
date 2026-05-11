@@ -3,8 +3,6 @@
    Single source of truth. Mirrors the in-page Tailwind config + :root vars.
    ========================================================================== */
 
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
 :root {
   /* ---------- BRAND COLOR (cyan-teal) ---------- */
   --primary-50:  #e6f4fa;
@@ -67,8 +65,9 @@
   --info-500:  var(--primary-500);
 
   /* ---------- TYPE — base ---------- */
-  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont,
-               'Segoe UI', system-ui, sans-serif;
+  --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont,
+               system-ui, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+               'Malgun Gothic', sans-serif;
   --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --tracking-tight:  -0.02em;   /* default for KR */
@@ -156,7 +155,13 @@ html, body {
   background: var(--bg-page);
   color: var(--fg-1);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   word-break: keep-all;
+}
+
+/* Form 요소는 기본적으로 부모 폰트를 상속하지 않음 — 명시적 강제 */
+button, input, select, textarea, optgroup, option {
+  font-family: var(--font-sans);
 }
 
 h1, .h1 {
