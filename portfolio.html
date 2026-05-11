@@ -1,0 +1,1690 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김지혜 · Portfolio — Quality, EV Charging, Wiring Harness</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+  /* ============================================================
+     Google Material 3 stylized layer.
+     High information density, clear category colors, chips, cards.
+     ============================================================ */
+
+  :root {
+    /* M3-ish surface */
+    --m-surface:        #fdfcff;
+    --m-surface-2:      #f3f4f9;
+    --m-surface-3:      #eef0f6;
+    --m-surface-tint:   #e8eaf3;
+    --m-outline:        #c4c7cf;
+    --m-outline-var:    #dfe2eb;
+
+    --m-on-surface:     #1a1c1e;
+    --m-on-surface-var: #43474e;
+    --m-on-surface-3:   #74777f;
+
+    /* Primary — Google blue */
+    --m-primary:        #0b57d0;
+    --m-primary-hover:  #0942a8;
+    --m-primary-cont:   #d3e3fd;
+    --m-on-primary-cont: #001b3e;
+
+    /* Category colors (Material palette) */
+    --c-ev:        #1967d2;   /* blue 700  — EV operations */
+    --c-ev-cont:   #d2e3fc;
+    --c-quality:   #b06000;   /* orange 800 — Quality */
+    --c-quality-cont: #fde7c4;
+    --c-purchase:  #137333;   /* green 800 — Purchasing */
+    --c-purchase-cont: #ceead6;
+    --c-policy:    #b80672;   /* pink 700 — Policy */
+    --c-policy-cont: #fad1eb;
+    --c-design:    #6a1b9a;   /* purple 700 — Design */
+    --c-design-cont: #ead4f5;
+    --c-robot:     #00695c;   /* teal 800 — Robot */
+    --c-robot-cont: #b2dfdb;
+    --c-data:      #c5221f;   /* red 700 — Data */
+    --c-data-cont: #fad2cf;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--m-surface-2);
+    color: var(--m-on-surface);
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    letter-spacing: 0;
+  }
+  h1, h2, h3, h4, h5 { margin: 0; }
+  p { margin: 0; }
+  a { color: var(--m-primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* ===== Material symbols-like icon helper (inline SVG used) ===== */
+  .ic { width: 20px; height: 20px; flex-shrink: 0; }
+  .ic-lg { width: 24px; height: 24px; }
+  .ic-xl { width: 28px; height: 28px; }
+
+  /* ===== App bar (top, fixed, slight elevation) ===== */
+  .appbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 64px; background: var(--m-surface);
+    border-bottom: 1px solid var(--m-outline-var);
+    z-index: 100;
+    display: flex; align-items: center;
+  }
+  .appbar-inner {
+    width: 100%; max-width: 1280px; margin: 0 auto;
+    padding: 0 24px;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 12px;
+    font-weight: 500; font-size: 18px; color: var(--m-on-surface);
+  }
+  .brand-mark {
+    width: 36px; height: 36px; border-radius: 18px;
+    background: var(--m-primary); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+  .nav-links { display: flex; gap: 4px; margin-left: auto; }
+  .nav-links a {
+    padding: 8px 16px; border-radius: 999px;
+    font-size: 14px; font-weight: 500; color: var(--m-on-surface-var);
+    transition: background .2s;
+  }
+  .nav-links a:hover { background: var(--m-surface-3); text-decoration: none; }
+  .nav-links a.active { background: var(--m-primary-cont); color: var(--m-on-primary-cont); }
+
+  .filled-btn, .tonal-btn, .outlined-btn, .text-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 40px; padding: 0 24px;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    border: none;
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .filled-btn { background: var(--m-primary); color: #fff; }
+  .filled-btn:hover { background: var(--m-primary-hover); box-shadow: 0 1px 3px rgba(0,0,0,0.2); text-decoration: none; }
+  .tonal-btn { background: var(--m-primary-cont); color: var(--m-on-primary-cont); }
+  .tonal-btn:hover { box-shadow: 0 1px 3px rgba(0,0,0,0.15); text-decoration: none; }
+  .outlined-btn { background: transparent; color: var(--m-primary); border: 1px solid var(--m-outline); }
+  .outlined-btn:hover { background: var(--m-surface-3); text-decoration: none; }
+  .text-btn { background: transparent; color: var(--m-primary); padding: 0 12px; }
+  .text-btn:hover { background: var(--m-primary-cont); text-decoration: none; }
+
+  /* ===== Layout container ===== */
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  main { padding-top: 64px; }
+
+  /* ============================================================
+     HERO — two-column. Persona on left, summary cards on right.
+     Material card aesthetic.
+     ============================================================ */
+  .hero {
+    padding: 56px 0 72px;
+    background: linear-gradient(180deg, var(--m-surface) 0%, var(--m-surface-2) 100%);
+    border-bottom: 1px solid var(--m-outline-var);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px;
+    align-items: start;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 32px; padding: 0 14px;
+    background: var(--m-primary-cont); color: var(--m-on-primary-cont);
+    border-radius: 999px;
+    font-size: 13px; font-weight: 500;
+  }
+  .pill .live-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #137333;
+    box-shadow: 0 0 0 0 rgba(19,115,51,0.5);
+    animation: pulseDot 1.8s infinite;
+  }
+  @keyframes pulseDot { 0% {box-shadow: 0 0 0 0 rgba(19,115,51,0.45);} 80%,100% {box-shadow: 0 0 0 8px rgba(19,115,51,0);} }
+
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 500; line-height: 1.1;
+    color: var(--m-on-surface);
+    margin: 24px 0 24px;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 .accent { color: var(--m-primary); }
+  .hero .lede {
+    font-size: 18px; line-height: 1.6;
+    color: var(--m-on-surface-var);
+    margin-bottom: 32px;
+    max-width: 580px;
+  }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Right side info card */
+  .id-card {
+    background: var(--m-surface);
+    border-radius: 28px;
+    padding: 32px;
+    border: 1px solid var(--m-outline-var);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 6px 16px rgba(0,0,0,0.04);
+  }
+  .id-head {
+    display: flex; align-items: center; gap: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--m-outline-var);
+    margin-bottom: 24px;
+  }
+  .avatar {
+    width: 64px; height: 64px; border-radius: 32px;
+    background: linear-gradient(135deg, #0b57d0 0%, #1967d2 100%);
+    color: #fff; font-size: 24px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(11,87,208,0.3);
+  }
+  .id-head .name { font-size: 22px; font-weight: 700; color: var(--m-on-surface); margin-bottom: 2px; }
+  .id-head .role { font-size: 14px; color: var(--m-on-surface-var); }
+  .id-rows { display: grid; gap: 14px; }
+  .id-row { display: grid; grid-template-columns: 28px 80px 1fr; gap: 12px; align-items: start; }
+  .id-row .ic { color: var(--m-primary); margin-top: 2px; }
+  .id-row .k { font-size: 13px; color: var(--m-on-surface-3); }
+  .id-row .v { font-size: 14px; color: var(--m-on-surface); font-weight: 500; line-height: 1.45; }
+  .id-row .v small { display: block; font-weight: 400; color: var(--m-on-surface-var); margin-top: 2px; font-size: 12px; }
+
+  /* ============================================================
+     IMPACT METRICS — three large data cards
+     ============================================================ */
+  .section { padding: 80px 0; }
+  .section-head { margin-bottom: 40px; }
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--m-primary);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.4vw, 40px);
+    font-weight: 500; line-height: 1.15;
+    color: var(--m-on-surface);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+  .section-sub {
+    font-size: 17px; color: var(--m-on-surface-var); line-height: 1.55;
+    max-width: 720px;
+  }
+
+  .impact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .impact-card {
+    background: var(--m-surface);
+    border-radius: 24px;
+    padding: 32px;
+    border: 1px solid var(--m-outline-var);
+    transition: box-shadow .25s, transform .25s;
+    position: relative; overflow: hidden;
+  }
+  .impact-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .impact-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--cat-color);
+  }
+  .impact-card .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cat-color);
+    background: var(--cat-cont);
+    padding: 4px 10px; border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .impact-card .num {
+    font-size: 64px; font-weight: 500;
+    color: var(--cat-color);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 12px;
+  }
+  .impact-card .num .unit { font-size: 32px; font-weight: 500; }
+  .impact-card .label { font-size: 18px; font-weight: 500; color: var(--m-on-surface); margin-bottom: 8px; }
+  .impact-card .meta { font-size: 14px; color: var(--m-on-surface-var); line-height: 1.5; }
+  .impact-card.cat-purchase { --cat-color: var(--c-purchase); --cat-cont: var(--c-purchase-cont); }
+  .impact-card.cat-quality  { --cat-color: var(--c-quality);  --cat-cont: var(--c-quality-cont); }
+  .impact-card.cat-design   { --cat-color: var(--c-design);   --cat-cont: var(--c-design-cont); }
+
+  /* ============================================================
+     CAREER — Material vertical timeline with rail dots
+     ============================================================ */
+  .timeline {
+    position: relative;
+    padding-left: 0;
+  }
+  .role {
+    display: grid;
+    grid-template-columns: 240px 24px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+    align-items: start;
+  }
+  .role:not(:last-child) .rail::after {
+    content: ''; position: absolute;
+    left: 50%; top: 24px; bottom: -32px;
+    width: 2px; background: var(--m-outline-var);
+    transform: translateX(-50%);
+  }
+  .role-when { padding-top: 4px; }
+  .role-period {
+    font-size: 13px; font-weight: 500; color: var(--m-on-surface-3);
+    margin-bottom: 6px;
+  }
+  .role-year {
+    font-size: 28px; font-weight: 500; color: var(--m-on-surface);
+    letter-spacing: -0.5px;
+  }
+  .role-domain {
+    margin-top: 12px;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cat-color); background: var(--cat-cont);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .role-current {
+    margin-top: 8px;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #137333;
+  }
+  .role-current::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: #137333;
+    box-shadow: 0 0 0 0 rgba(19,115,51,0.45);
+    animation: pulseDot 1.8s infinite;
+  }
+
+  .rail { position: relative; }
+  .rail-dot {
+    position: relative; z-index: 1;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--m-surface); border: 3px solid var(--cat-color);
+    margin: 8px auto 0;
+  }
+  .role.current .rail-dot { background: var(--cat-color); }
+
+  .role-card {
+    background: var(--m-surface);
+    border: 1px solid var(--m-outline-var);
+    border-radius: 24px;
+    padding: 28px 32px;
+    transition: box-shadow .25s;
+  }
+  .role-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .role-org {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--m-on-surface-var); font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .role-title {
+    font-size: 24px; font-weight: 500; color: var(--m-on-surface);
+    line-height: 1.2; margin-bottom: 4px;
+    letter-spacing: -0.2px;
+  }
+  .role-position {
+    font-size: 14px; color: var(--m-on-surface-3); margin-bottom: 18px;
+  }
+  .role-summary {
+    font-size: 15px; line-height: 1.6; color: var(--m-on-surface-var);
+    margin-bottom: 20px;
+  }
+  .role-keywords {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 22px;
+  }
+  .chip {
+    display: inline-flex; align-items: center;
+    height: 28px; padding: 0 12px;
+    border-radius: 8px;
+    font-size: 12px; font-weight: 500;
+    background: var(--m-surface-3); color: var(--m-on-surface-var);
+    border: 1px solid var(--m-outline-var);
+  }
+  .chip.pri {
+    background: var(--cat-cont, var(--m-primary-cont));
+    color: var(--cat-color, var(--m-on-primary-cont));
+    border-color: transparent;
+  }
+  .role-highlights {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 12px;
+    padding-top: 20px; border-top: 1px solid var(--m-outline-var);
+  }
+  .role-highlights li {
+    display: grid; grid-template-columns: 24px 1fr; gap: 12px;
+    font-size: 14px; line-height: 1.55; color: var(--m-on-surface-var);
+  }
+  .role-highlights li svg {
+    width: 18px; height: 18px; color: var(--cat-color); margin-top: 2px;
+  }
+  .role-highlights b { color: var(--m-on-surface); font-weight: 700; }
+  .role-highlights .num {
+    color: var(--cat-color); font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    background: var(--cat-cont);
+    padding: 1px 8px; border-radius: 6px;
+    margin: 0 2px;
+  }
+
+  /* ============================================================
+     EMPHASIS SYSTEM — global rules for highlighting key terms
+     - <strong> = strongest emphasis (key metric / outcome)
+     - <em>     = medium emphasis (key concept), no italic
+     - .hl      = highlighter span (background-tinted phrase)
+     - .num-pop = numeric callout pill
+     ============================================================ */
+  strong {
+    font-weight: 800;
+    color: var(--m-on-surface);
+  }
+  em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--m-primary);
+    background: linear-gradient(180deg, transparent 60%, rgba(11,87,208,0.14) 60%);
+    padding: 0 2px;
+  }
+  .hl {
+    font-weight: 700;
+    color: var(--cat-color, var(--m-primary));
+    background: var(--cat-cont, var(--m-primary-cont));
+    padding: 1px 6px; border-radius: 5px;
+    white-space: nowrap;
+  }
+  .num-pop {
+    display: inline-block;
+    font-weight: 800;
+    color: var(--cat-color, var(--m-primary));
+    background: var(--cat-cont, var(--m-primary-cont));
+    padding: 1px 8px; border-radius: 6px;
+    font-variant-numeric: tabular-nums;
+    margin: 0 2px;
+  }
+  .role-summary strong { color: var(--cat-color); }
+  .pj-sub strong { color: var(--cat-color); font-weight: 700; }
+  .sheet-narrative strong { color: var(--cat-color); }
+  .sheet-list strong { color: var(--cat-color); font-weight: 700; }
+
+  /* category color injection on roles */
+  .role.cat-ev       { --cat-color: var(--c-ev);       --cat-cont: var(--c-ev-cont); }
+  .role.cat-quality  { --cat-color: var(--c-quality);  --cat-cont: var(--c-quality-cont); }
+  .role.cat-design   { --cat-color: var(--c-design);   --cat-cont: var(--c-design-cont); }
+  .role.cat-robot    { --cat-color: var(--c-robot);    --cat-cont: var(--c-robot-cont); }
+  .role.cat-data     { --cat-color: var(--c-data);     --cat-cont: var(--c-data-cont); }
+
+  /* ============================================================
+     PROJECTS — Material card grid with category strips
+     ============================================================ */
+  .pj-filters {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 28px;
+  }
+  .filter {
+    height: 36px; padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid var(--m-outline);
+    background: transparent;
+    font-size: 13px; font-weight: 500;
+    color: var(--m-on-surface-var);
+    transition: all .2s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .filter:hover { background: var(--m-surface-3); }
+  .filter.active {
+    background: var(--m-primary-cont); color: var(--m-on-primary-cont);
+    border-color: transparent;
+  }
+  .filter.active::before {
+    content: '✓'; font-size: 14px; font-weight: 700;
+  }
+
+  .projects {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  }
+  .pj {
+    background: var(--m-surface);
+    border-radius: 20px;
+    padding: 0;
+    border: 1px solid var(--m-outline-var);
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow .25s, transform .25s;
+    display: flex; flex-direction: column;
+  }
+  .pj:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-2px); }
+
+  .pj-strip {
+    height: 8px; background: var(--cat-color);
+  }
+  .pj-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+  .pj-meta {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 16px;
+  }
+  .pj-cat-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--cat-color); background: var(--cat-cont);
+    padding: 5px 10px; border-radius: 999px;
+  }
+  .pj-org {
+    font-size: 12px; color: var(--m-on-surface-3);
+    font-weight: 500;
+  }
+  .pj-title {
+    font-size: 20px; font-weight: 500; color: var(--m-on-surface);
+    line-height: 1.25; margin-bottom: 10px;
+    letter-spacing: -0.1px;
+  }
+  .pj-sub {
+    font-size: 14px; color: var(--m-on-surface-var); line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .pj-stats {
+    display: flex; gap: 24px;
+    padding: 16px 0;
+    border-top: 1px solid var(--m-outline-var);
+    border-bottom: 1px solid var(--m-outline-var);
+    margin-bottom: 20px;
+  }
+  .pj-stat .n {
+    font-size: 22px; font-weight: 500;
+    color: var(--cat-color);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+  }
+  .pj-stat .l {
+    font-size: 11px; color: var(--m-on-surface-3);
+    font-weight: 500; margin-top: 4px;
+    letter-spacing: 0.02em;
+  }
+  .pj-result {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--m-on-surface-var);
+    margin-top: auto;
+  }
+  .pj-result svg { color: var(--cat-color); }
+  .pj-result b { color: var(--m-on-surface); font-weight: 500; }
+
+  .pj-foot {
+    display: flex; align-items: center; justify-content: flex-end;
+    padding: 0 28px 20px;
+  }
+  .pj-arrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--cat-color); font-size: 13px; font-weight: 500;
+  }
+  .pj:hover .pj-arrow svg { transform: translateX(3px); }
+  .pj-arrow svg { transition: transform .2s; }
+
+  /* category injection on projects */
+  .cat-evcharge { --cat-color: var(--c-ev);       --cat-cont: var(--c-ev-cont); }
+  .cat-quality  { --cat-color: var(--c-quality);  --cat-cont: var(--c-quality-cont); }
+  .cat-purchase { --cat-color: var(--c-purchase); --cat-cont: var(--c-purchase-cont); }
+  .cat-policy   { --cat-color: var(--c-policy);   --cat-cont: var(--c-policy-cont); }
+  .cat-design   { --cat-color: var(--c-design);   --cat-cont: var(--c-design-cont); }
+  .cat-robot    { --cat-color: var(--c-robot);    --cat-cont: var(--c-robot-cont); }
+
+  /* ============================================================
+     SHEET — Material modal (right-side drawer 60% screen)
+     ============================================================ */
+  .sheet-overlay {
+    position: fixed; inset: 0;
+    background: rgba(20,22,28,0.55);
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 200;
+  }
+  .sheet-overlay.open { opacity: 1; pointer-events: auto; }
+  .sheet {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: min(720px, 92vw);
+    background: var(--m-surface);
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(0.32,0.72,0,1);
+    overflow-y: auto;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.2);
+  }
+  .sheet-overlay.open .sheet { transform: translateX(0); }
+  .sheet-head {
+    position: sticky; top: 0; z-index: 5;
+    background: rgba(253,252,255,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--m-outline-var);
+    padding: 16px 32px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sheet-cat-chip {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--cat-color);
+    background: var(--cat-cont); padding: 5px 10px; border-radius: 999px;
+  }
+  .sheet-org {
+    font-size: 13px; color: var(--m-on-surface-3);
+    font-weight: 500;
+  }
+  .sheet-close {
+    margin-left: auto;
+    width: 40px; height: 40px; border-radius: 20px;
+    background: transparent; border: none;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--m-on-surface-var);
+  }
+  .sheet-close:hover { background: var(--m-surface-3); }
+
+  .sheet-body { padding: 40px 48px 80px; }
+  .sheet-body h2 {
+    font-size: 32px; font-weight: 500; color: var(--m-on-surface);
+    line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 16px;
+  }
+  .sheet-body .lede {
+    font-size: 17px; color: var(--m-on-surface-var); line-height: 1.55;
+    margin-bottom: 32px;
+  }
+
+  .sheet-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .sheet-stat {
+    background: var(--cat-cont); border-radius: 16px;
+    padding: 20px;
+  }
+  .sheet-stat .n {
+    font-size: 28px; font-weight: 500;
+    color: var(--cat-color); line-height: 1;
+    letter-spacing: -0.5px; margin-bottom: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  .sheet-stat .l {
+    font-size: 12px; color: var(--m-on-surface); line-height: 1.4;
+  }
+
+  .sheet-section {
+    margin-bottom: 36px;
+  }
+  .sheet-h {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 700; color: var(--m-on-surface);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  .sheet-h .h-num {
+    width: 24px; height: 24px; border-radius: 12px;
+    background: var(--cat-color); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0;
+  }
+  .sheet-narrative {
+    font-size: 15px; line-height: 1.7; color: var(--m-on-surface-var);
+    background: var(--m-surface-2); border-radius: 16px;
+    padding: 20px 24px;
+  }
+  .sheet-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .sheet-list li {
+    display: grid; grid-template-columns: 32px 1fr; gap: 12px;
+    padding: 12px 16px;
+    background: var(--m-surface-2);
+    border-radius: 12px;
+    font-size: 14px; line-height: 1.55; color: var(--m-on-surface-var);
+  }
+  .sheet-list li .ix {
+    width: 24px; height: 24px; border-radius: 12px;
+    background: var(--cat-color); color: #fff;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .sheet-skills {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 16px;
+  }
+
+  /* ============================================================
+     CAPABILITIES — Material card grid
+     ============================================================ */
+  .caps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .cap-card {
+    background: var(--m-surface);
+    border: 1px solid var(--m-outline-var);
+    border-radius: 20px;
+    padding: 28px;
+    transition: box-shadow .25s;
+  }
+  .cap-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .cap-icon-wrap {
+    width: 48px; height: 48px; border-radius: 16px;
+    background: var(--cat-cont); color: var(--cat-color);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .cap-card h4 {
+    font-size: 18px; font-weight: 500; color: var(--m-on-surface);
+    margin-bottom: 8px;
+  }
+  .cap-card p {
+    font-size: 14px; line-height: 1.6; color: var(--m-on-surface-var);
+    margin-bottom: 16px;
+  }
+  .cap-tools {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding-top: 16px;
+    border-top: 1px solid var(--m-outline-var);
+  }
+
+  /* ============================================================
+     ACTIVITIES
+     ============================================================ */
+  .acts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .act-card {
+    background: var(--m-surface);
+    border: 1px solid var(--m-outline-var);
+    border-radius: 20px;
+    padding: 28px;
+    transition: box-shadow .25s;
+  }
+  .act-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .act-card .yr { font-size: 12px; color: var(--m-on-surface-3); font-weight: 500; margin-bottom: 12px; }
+  .act-card h4 { font-size: 18px; font-weight: 500; color: var(--m-on-surface); margin-bottom: 8px; line-height: 1.3; }
+  .act-card p { font-size: 14px; color: var(--m-on-surface-var); line-height: 1.55; margin-bottom: 16px; }
+  .act-card .stat-row {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding-top: 14px;
+    border-top: 1px solid var(--m-outline-var);
+  }
+  .stat-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    height: 26px; padding: 0 10px;
+    background: var(--m-primary-cont); color: var(--m-on-primary-cont);
+    border-radius: 999px;
+    font-size: 12px; font-weight: 500;
+  }
+  .stat-pill .n { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* ============================================================
+     CONTACT — Material card with email/phone/notion buttons
+     ============================================================ */
+  .contact-card {
+    background: var(--m-surface);
+    border-radius: 28px;
+    padding: 56px 56px 56px;
+    border: 1px solid var(--m-outline-var);
+    position: relative; overflow: hidden;
+  }
+  .contact-card::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, var(--m-primary-cont) 0%, transparent 70%);
+    opacity: .6; pointer-events: none;
+  }
+  .contact-card > * { position: relative; z-index: 1; }
+  .contact-card h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 500; line-height: 1.1;
+    color: var(--m-on-surface);
+    margin-bottom: 20px; letter-spacing: -0.5px;
+  }
+  .contact-card h2 .accent { color: var(--m-primary); }
+  .contact-card .sub {
+    font-size: 17px; color: var(--m-on-surface-var); line-height: 1.55;
+    margin-bottom: 40px; max-width: 560px;
+  }
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-bottom: 32px;
+  }
+  .contact-item {
+    background: var(--m-surface-2);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .contact-item .ic-wrap {
+    width: 40px; height: 40px; border-radius: 20px;
+    background: var(--m-primary-cont); color: var(--m-on-primary-cont);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-item .k { font-size: 12px; color: var(--m-on-surface-3); font-weight: 500; margin-bottom: 4px; }
+  .contact-item .v { font-size: 15px; color: var(--m-on-surface); font-weight: 500; word-break: break-all; }
+  .contact-item .v a { color: inherit; }
+  .contact-item .v a:hover { color: var(--m-primary); }
+  .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  footer {
+    padding: 32px 0 64px;
+    font-size: 13px;
+    color: var(--m-on-surface-3);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  /* ============================================================
+     Responsive
+     ============================================================ */
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .impact-grid, .projects, .caps, .acts, .contact-grid, .sheet-stats { grid-template-columns: 1fr; }
+    .role { grid-template-columns: 1fr; gap: 12px; }
+    .rail, .role:not(:last-child) .rail::after { display: none; }
+    .sheet-body { padding: 32px 24px 64px; }
+    .contact-card { padding: 32px 24px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== APP BAR ============== -->
+<header class="appbar">
+  <div class="appbar-inner">
+    <div class="brand">
+      <div class="brand-mark">JK</div>
+      <span>김지혜 · Portfolio</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#impact" class="active">Impact</a>
+      <a href="#career">Career</a>
+      <a href="#projects">Projects</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="https://four-plywood-6e1.notion.site/_-261e77c346428085a587d0f3fe6e8f17" target="_blank" rel="noopener" class="filled-btn">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      경력기술서 보기
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero" data-screen-label="01 Hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="pill"><span class="live-dot"></span>Open to opportunities · 이직 준비 중</span>
+          <h1>제품·운영·정책의<br>경계에서 문제를 푸는<br><span class="accent">엔지니어 출신 매니저.</span></h1>
+          <p class="lede">
+            <strong>와이어링 하네스 회로 설계</strong>로 시작해 <strong>자율주행 로봇 QA</strong>, <strong>EV 충전 인프라 운영·기획</strong>까지.
+            <em>7년간 자동차·모빌리티 산업의 설계·품질·구매·정책 대응을 한 흐름으로 풀어왔습니다.</em>
+          </p>
+          <div class="hero-cta">
+            <a href="https://four-plywood-6e1.notion.site/_-261e77c346428085a587d0f3fe6e8f17" target="_blank" rel="noopener" class="filled-btn">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Notion 경력기술서
+            </a>
+            <a href="#projects" class="tonal-btn">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              프로젝트 사례
+            </a>
+            <a href="#contact" class="outlined-btn">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              연락하기
+            </a>
+          </div>
+        </div>
+
+        <!-- Identity card -->
+        <div class="id-card">
+          <div class="id-head">
+            <div class="avatar">김</div>
+            <div>
+              <div class="name">김지혜 · JI HYE, KIM</div>
+              <div class="role">Quality · EV Charging · Wiring Harness</div>
+            </div>
+          </div>
+          <div class="id-rows">
+            <div class="id-row">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span class="k">현재</span>
+              <span class="v">현대엔지니어링 · EVC센터<small>사원 · 2025.06 – 재직중</small></span>
+            </div>
+            <div class="id-row">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <span class="k">총 경력</span>
+              <span class="v">7년+<small>설계 3년 · 모빌리티 1년 · EV 2년+</small></span>
+            </div>
+            <div class="id-row">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="k">위치</span>
+              <span class="v">서울특별시 동작구<small>전국·해외 출장 가능</small></span>
+            </div>
+            <div class="id-row">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span class="k">Email</span>
+              <span class="v"><a href="mailto:kimwh564@naver.com">kimwh564@naver.com</a></span>
+            </div>
+            <div class="id-row">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span class="k">Phone</span>
+              <span class="v">010 · 8780 · 9756</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== IMPACT ============== -->
+  <section class="section" id="impact" data-screen-label="02 Impact">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Selected Impact</span>
+        <h2 class="section-title">측정 가능한 결과로 말합니다.</h2>
+        <p class="section-sub">설계도 운영도, 끝은 항상 <strong>숫자</strong>로 떨어집니다. 7년간 만들어낸 변화 중 <em>가장 분명한 셋</em>.</p>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-card cat-purchase">
+          <span class="badge">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Purchasing
+          </span>
+          <div class="num">12.5<span class="unit">%↓</span></div>
+          <div class="label">완속 충전기 단가 인하</div>
+          <div class="meta"><strong>경쟁입찰 도입</strong>으로 <span class="num-pop">연 1억원+</span> 원가 절감.<br>완속 5,000기 / 급속 500기 도입 계약.</div>
+        </div>
+        <div class="impact-card cat-quality">
+          <span class="badge">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Quality
+          </span>
+          <div class="num">90<span class="unit">%↓</span></div>
+          <div class="label">ECU 커넥터 불량률 감소</div>
+          <div class="meta"><strong>접점 불량 원인 분석</strong> 및 대체 단자 도입.<br>커넥터 통합 설계로 <span class="num-pop">연 2,400만원</span> 절감.</div>
+        </div>
+        <div class="impact-card cat-design">
+          <span class="badge">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            Design
+          </span>
+          <div class="num">2,400<span class="unit">만원</span></div>
+          <div class="label">연간 원가 절감</div>
+          <div class="meta"><strong>도어–루프 커넥터 통합 설계</strong> +<br>SPLICE Double Clamping <strong>자체 검증</strong>.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CAREER ============== -->
+  <section class="section" id="career" data-screen-label="03 Career" style="background: var(--m-surface);">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Career</span>
+        <h2 class="section-title">설계 → 모빌리티 → EV 인프라.</h2>
+        <p class="section-sub"><strong>하드웨어를 직접 그리던 사람</strong>이 <em>시스템을 설계하는 사람</em>으로. 7년의 흐름은 한 줄로 이어집니다.</p>
+      </div>
+
+      <div class="timeline">
+
+        <article class="role cat-ev current">
+          <div class="role-when">
+            <div class="role-period">2025.06 – 재직중</div>
+            <div class="role-year">2025</div>
+            <span class="role-current">Currently</span><br>
+            <span class="role-domain">EV Operations</span>
+          </div>
+          <div class="rail"><div class="rail-dot"></div></div>
+          <div class="role-card">
+            <div class="role-org">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              현대엔지니어링 · EVC센터
+            </div>
+            <h3 class="role-title">EV 충전 인프라 운영</h3>
+            <div class="role-position">사원 · 운영 / QA / 정산 / 데이터 분석</div>
+            <p class="role-summary">
+              <strong>JIRA 기반 A/S 체계 정립</strong>, 제조사 펌웨어 검증, 운영 데이터 분석으로 <em>충전 인프라 가동률과
+              고객 응대 품질</em>을 동시에 끌어올리는 일을 하고 있습니다.
+            </p>
+            <div class="role-keywords">
+              <span class="chip pri">JIRA</span>
+              <span class="chip pri">QA</span>
+              <span class="chip">펌웨어 검증</span>
+              <span class="chip">정산 운영</span>
+              <span class="chip">데이터 분석</span>
+              <span class="chip">스마트제어</span>
+              <span class="chip">E-PIT 로밍</span>
+            </div>
+            <ul class="role-highlights">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>JIRA 기반 A/S 체계 개선</b> — 메신저·전화·엑셀로 분산되어있던 접수를 단일 시스템으로 통합, 장애 패턴 분석 가능 구조로 전환</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>스마트제어 충전기 환경부 인증 연동 테스트</b> 주도, 제조사 펌웨어 QA 및 운영 적용</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>월별 정산 프로세스 고도화</b> — E-PIT 및 타사 로밍 데이터 검증, 손실 요인 분석 기반 프로모션 비용 산정</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role cat-ev">
+          <div class="role-when">
+            <div class="role-period">2024.07 – 2025.06</div>
+            <div class="role-year">2024</div>
+            <span class="role-domain">EV Strategy</span>
+          </div>
+          <div class="rail"><div class="rail-dot"></div></div>
+          <div class="role-card">
+            <div class="role-org">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              아이파킹 · EV개발기획팀
+            </div>
+            <h3 class="role-title">EV 충전 사업 기획</h3>
+            <div class="role-position">매니저 · 사업기획 / 구매 / 정책 대응</div>
+            <p class="role-summary">
+              <strong>완성차 브랜드 충전 사업</strong>, <strong>정부 정책 대응</strong>, <strong>대규모 구매 협상</strong>까지.
+              <em>사업·기술·정책이 만나는 지점</em>에서 EV 충전 서비스의 운영 표준을 만들었습니다.
+            </p>
+            <div class="role-keywords">
+              <span class="chip pri">사업기획</span>
+              <span class="chip pri">구매</span>
+              <span class="chip">펌웨어 QA</span>
+              <span class="chip">CMS · 앱 기획</span>
+              <span class="chip">정책 대응</span>
+              <span class="chip">완성차 협업</span>
+            </div>
+            <ul class="role-highlights">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>완속 충전기 단가 <span class="num">12.5%</span> 인하</b> — 경쟁입찰 도입, 연 1억원+ 원가 절감</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>폴스타 브랜드 전용 충전소 구축</b> — UI/UX 기획, CS 대응 체계, 볼보·마세라티 확장 기반 마련</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>환경부 스마트제어 보조금 정책 대응</b> — PLC 기반 펌웨어 반영, 전사 계약 구조 재설계</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>급속 충전기 케이블 중량·내구성 개선</b> 프로젝트 주관, 피닉스·EL·유라 시제품 비교 검증</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role cat-robot">
+          <div class="role-when">
+            <div class="role-period">2023.02 – 2024.02</div>
+            <div class="role-year">2023</div>
+            <span class="role-domain">Robotics QA</span>
+          </div>
+          <div class="rail"><div class="rail-dot"></div></div>
+          <div class="role-card">
+            <div class="role-org">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              우아한형제들 · 로봇배달서비스운영팀
+            </div>
+            <h3 class="role-title">자율주행 배달로봇 운영</h3>
+            <div class="role-position">매니저 · QA / 법규 해석 / 데이터 분석</div>
+            <p class="role-summary">
+              <strong>도로교통법·건축법을 직접 해석</strong>해 로봇이 다닐 수 있는 길을 그리고, <strong>주행 데이터로 이상 동작 원인을 분석</strong>해 <em>서비스 안정성</em>을 끌어올렸습니다.
+            </p>
+            <div class="role-keywords">
+              <span class="chip pri">자율주행</span>
+              <span class="chip pri">QA</span>
+              <span class="chip">법규 해석</span>
+              <span class="chip">주행 데이터 분석</span>
+              <span class="chip">JIRA</span>
+              <span class="chip">CS</span>
+            </div>
+            <ul class="role-highlights">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>주행 허용 구역 법령 해석 및 현장 적용</b> — 서비스 가능 지역 사전 분석 및 운영 가이드 정립</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>알파 테스트 QA 및 이상 동작 분석</b> — 경로 이탈·센서 인식 오류 개선으로 서비스 안정성 향상</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>JIRA 기반 이슈 관리 체계 구축</b> — 개발팀·제조사 협업 프로세스 내재화</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role cat-quality">
+          <div class="role-when">
+            <div class="role-period">2022.05 – 2023.02</div>
+            <div class="role-year">2022</div>
+            <span class="role-domain">Wiring Harness</span>
+          </div>
+          <div class="rail"><div class="rail-dot"></div></div>
+          <div class="role-card">
+            <div class="role-org">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              패커드코리아 · 설계2팀
+            </div>
+            <h3 class="role-title">자동차 와이어링 하네스 설계</h3>
+            <div class="role-position">계장 · 회로 설계 / 신뢰성 시험 / RFQ</div>
+            <p class="role-summary">
+              <strong>ECU 커넥터 접점 불량을 90% 이상 줄이고</strong>, 통합 설계로 <span class="num-pop">연 2,400만원</span> 원가를 절감했습니다.
+              <em>설계 도면이 곧 양산 품질이라는 감각</em>을 단단히 익힌 기간.
+            </p>
+            <div class="role-keywords">
+              <span class="chip pri">하네스 설계</span>
+              <span class="chip pri">신뢰성 시험</span>
+              <span class="chip">RFQ · 견적</span>
+              <span class="chip">BOM · ERP</span>
+              <span class="chip">벤치마킹</span>
+              <span class="chip">고객 품질 승인</span>
+            </div>
+            <ul class="role-highlights">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>ECU 커넥터 불량률 <span class="num">90%↓</span></b> — 접점 불량 원인 분석 및 대체 단자 도입</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>도어–루프 커넥터 통합 설계로 연 <span class="num">2,400만원</span> 절감</b></span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>SPLICE Double Clamping 구조 자체 신뢰성 시험 설계</b> 및 고객 승인 획득</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role cat-design">
+          <div class="role-when">
+            <div class="role-period">2019.06 – 2022.02</div>
+            <div class="role-year">2019</div>
+            <span class="role-domain">R&D · Design</span>
+          </div>
+          <div class="rail"><div class="rail-dot"></div></div>
+          <div class="role-card">
+            <div class="role-org">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              에이팸 · 설계1팀
+            </div>
+            <h3 class="role-title">하네스 회로 · 제조 설계</h3>
+            <div class="role-position">연구원 · 승용·상용차 / 해외 신규 공장 대응</div>
+            <p class="role-summary">
+              <strong>승용·상용차 하네스를 직접 그리고</strong>, <strong>VINFAST 베트남 신규 공장 양산 대응</strong>까지 수행.
+              <em>설계가 어떻게 양산 라인의 비용·품질·일정으로 환산되는지를 몸으로 배운 시기.</em>
+            </p>
+            <div class="role-keywords">
+              <span class="chip pri">회로 설계</span>
+              <span class="chip pri">상용차</span>
+              <span class="chip">3.5톤 신규 개발</span>
+              <span class="chip">VINFAST 베트남</span>
+              <span class="chip">RFQ · BOM</span>
+              <span class="chip">DR 대응</span>
+            </div>
+            <ul class="role-highlights">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>3.5톤 상용차 하네스 신규 개발</b> 참여, 조립성 개선 및 품질 안정화 기여</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>VINFAST 베트남 신규 공장 대응</b> — 제품 사양 정립 및 초기 설계 안정화 주도, 양산 리스크 사전 차단</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span>고객사 Design Review 대응, 시제품 실차 조립 테스트로 설계 검증 수행</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role cat-data">
+          <div class="role-when">
+            <div class="role-period">2018.01 – 2018.06</div>
+            <div class="role-year">2018</div>
+            <span class="role-domain">Internship</span>
+          </div>
+          <div class="rail"><div class="rail-dot"></div></div>
+          <div class="role-card">
+            <div class="role-org">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              오토닉스 기술연구소 · 모터구동팀
+            </div>
+            <h3 class="role-title">DC 모터 신뢰성 시험</h3>
+            <div class="role-position">인턴 · LabVIEW / HMI 설계</div>
+            <p class="role-summary">
+              <strong>LabVIEW 기반 시험 시스템</strong>을 직접 구성하고 반복 구동 데이터로 <em>구동 불안정 요인을 분석</em>.
+              제어기 HMI 경고 메시지 구조까지 설계한 경험.
+            </p>
+            <div class="role-keywords">
+              <span class="chip">LabVIEW</span>
+              <span class="chip">DC 모터</span>
+              <span class="chip">내구 시험</span>
+              <span class="chip">HMI 설계</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PROJECTS ============== -->
+  <section class="section" id="projects" data-screen-label="04 Projects">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Featured Projects</span>
+        <h2 class="section-title">대표 프로젝트.</h2>
+        <p class="section-sub">EV 충전 운영, 자동차 부품 품질, 신뢰성 검증, 정책 대응. 카드를 누르면 <strong>배경 → 실행 → 결과</strong> 전체를 볼 수 있습니다.</p>
+      </div>
+
+      <div class="pj-filters" id="pj-filters">
+        <button class="filter active" data-filter="all">전체</button>
+        <button class="filter" data-filter="cat-evcharge">EV 운영</button>
+        <button class="filter" data-filter="cat-quality">품질</button>
+        <button class="filter" data-filter="cat-purchase">구매</button>
+        <button class="filter" data-filter="cat-policy">정책</button>
+        <button class="filter" data-filter="cat-design">설계</button>
+        <button class="filter" data-filter="cat-robot">로봇</button>
+      </div>
+
+      <div class="projects" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============== CAPABILITIES ============== -->
+  <section class="section" id="capabilities" data-screen-label="05 Capabilities" style="background: var(--m-surface);">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Capabilities</span>
+        <h2 class="section-title">한 사람이 다룰 수 있는 영역.</h2>
+        <p class="section-sub"><strong>설계자의 눈, 운영자의 손, 기획자의 머리.</strong> <em>셋 모두를 한 프로젝트 안에서 이어붙이는 일</em>을 합니다.</p>
+      </div>
+
+      <div class="caps">
+        <div class="cap-card cat-design">
+          <div class="cap-icon-wrap">
+            <svg class="ic-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M3 12h12"/><path d="M3 18h6"/><circle cx="20" cy="12" r="2"/></svg>
+          </div>
+          <h4>설계 · Engineering</h4>
+          <p>와이어링 하네스 회로/경로/제조 설계, RFQ·견적·COST 산출, BOM 관리, 도면 작성. 양산 가능성을 도면 단계에서 판단합니다.</p>
+          <div class="cap-tools">
+            <span class="chip">CATIA</span><span class="chip">ERP</span><span class="chip">BOM</span><span class="chip">DR 대응</span>
+          </div>
+        </div>
+        <div class="cap-card cat-quality">
+          <div class="cap-icon-wrap">
+            <svg class="ic-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h4>품질 · QA</h4>
+          <p>JIRA 기반 이슈 관리 체계 구축, 펌웨어 QA, 신뢰성 시험 설계 및 고객 품질 승인 대응. 자동차·로봇·EV 충전기 모두 경험.</p>
+          <div class="cap-tools">
+            <span class="chip">JIRA</span><span class="chip">신뢰성 시험</span><span class="chip">Validation</span><span class="chip">고객 승인</span>
+          </div>
+        </div>
+        <div class="cap-card cat-purchase">
+          <div class="cap-icon-wrap">
+            <svg class="ic-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v4H3z"/><path d="M5 7v13h14V7"/><path d="M9 11h6"/></svg>
+          </div>
+          <h4>구매 · 계약</h4>
+          <p>경쟁입찰 설계, 단가 협상, A/S·납기·기술 사양 통합 평가표 작성. 완속 5,000기/급속 500기 안정 도입 계약 체결 경험.</p>
+          <div class="cap-tools">
+            <span class="chip">경쟁입찰</span><span class="chip">단가협상</span><span class="chip">계약관리</span>
+          </div>
+        </div>
+        <div class="cap-card cat-ev">
+          <div class="cap-icon-wrap">
+            <svg class="ic-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h4>운영 · Operations</h4>
+          <p>가동률 모니터링, 장애 대응, 월별 실적·정산. E-PIT·로밍 정산 데이터 검증과 손실 요인 분석으로 운영 손실 구조를 가시화.</p>
+          <div class="cap-tools">
+            <span class="chip">가동률 모니터링</span><span class="chip">정산</span><span class="chip">장애 대응</span>
+          </div>
+        </div>
+        <div class="cap-card cat-data">
+          <div class="cap-icon-wrap">
+            <svg class="ic-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
+          </div>
+          <h4>데이터 분석</h4>
+          <p>Pandas·NumPy·Scikit-learn 기반 결측·이상치 처리 및 모델링. 자동차 대출 상환 예측 모델, 충전 운영 손실 분석 등 실무 적용.</p>
+          <div class="cap-tools">
+            <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Scikit-learn</span><span class="chip">Tableau</span>
+          </div>
+        </div>
+        <div class="cap-card cat-policy">
+          <div class="cap-icon-wrap">
+            <svg class="ic-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <h4>정책 · 사업기획</h4>
+          <p>환경부 보조금 정책 변경 대응 및 전사 계약 구조 재설계, 폴스타·볼보·마세라티 등 완성차 브랜드 충전 사업 기획.</p>
+          <div class="cap-tools">
+            <span class="chip">환경부 정책</span><span class="chip">브랜드 사업기획</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ACTIVITIES ============== -->
+  <section class="section" id="activities" data-screen-label="06 Activities">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Beyond Work</span>
+        <h2 class="section-title">회사 밖에서의 학습.</h2>
+        <p class="section-sub">로봇 동작 인식, AI 빅데이터, 자율주행 모형차. 손으로 직접 만들면서 이어온 학습의 흐름.</p>
+      </div>
+      <div class="acts">
+        <div class="act-card">
+          <div class="yr">2024.05 – 2024.07</div>
+          <h4>포스코 AI Big Data 아카데미</h4>
+          <p>Big Data 교육 후 실데이터 기반 진단 및 AI 활용 로봇 제작 프로젝트. 자동차 대출 상환 예측 모델로 RandomForest·XGBoost 비교·최적화 수행.</p>
+          <div class="stat-row">
+            <span class="stat-pill">서비스 효율성 <span class="n">+20%</span></span>
+            <span class="stat-pill">자율주행 성능 <span class="n">+30%</span></span>
+          </div>
+        </div>
+        <div class="act-card">
+          <div class="yr">2015.12 – 2019.02</div>
+          <h4>학부연구생 (Frontier)</h4>
+          <p>3D 프린터·센서 활용 자율주행 모형 자동차 제작. C#·Python으로 경로 탐색 및 회피 로직 구현, 초음파·적외선·LiDAR 통합.</p>
+          <div class="stat-row">
+            <span class="stat-pill">회피 정확도 <span class="n">90%+</span></span>
+            <span class="stat-pill">경로 탐색 <span class="n">95%</span></span>
+          </div>
+        </div>
+        <div class="act-card">
+          <div class="yr">2016.04 – 2016.12</div>
+          <h4>LabVIEW 동작 인식 로봇 (NI 주최)</h4>
+          <p>Kinect 스켈레톤 데이터를 LabVIEW에서 실시간 처리, 모터 제어 신호로 변환. 동작–구동 오차 축소 로직 최적화.</p>
+          <div class="stat-row">
+            <span class="stat-pill">처리 속도 <span class="n">+80%</span></span>
+            <span class="stat-pill">우수 프로젝트 선정</span>
+          </div>
+        </div>
+        <div class="act-card">
+          <div class="yr">2016.01 – 2016.12</div>
+          <h4>학과 집행부 · 신입생 인솔 및 행사 운영</h4>
+          <p>학과의 날·체육대회·MT 기획·실행, 예산 편성 및 현장 관리. 멘토링 프로그램 운영.</p>
+          <div class="stat-row">
+            <span class="stat-pill">참여율 <span class="n">70%+</span></span>
+            <span class="stat-pill">적응률 설문 <span class="n">90%+</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CONTACT ============== -->
+  <section class="section" id="contact" data-screen-label="07 Contact" style="padding-bottom: 120px;">
+    <div class="container">
+      <div class="contact-card">
+        <span class="section-eyebrow">Get in touch</span>
+        <h2>설계와 운영을 함께 이해하는 사람을<br>찾고 계신가요. <span class="accent">대화해요.</span></h2>
+        <p class="sub">자동차 부품, EV 충전, 모빌리티 운영, 품질·구매·정책 대응. 어느 자리든 첫 90일을 어떻게 시작할지 이야기 나눠보고 싶습니다.</p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="ic-wrap">
+              <svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="k">Email</div>
+              <div class="v"><a href="mailto:kimwh564@naver.com">kimwh564@naver.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ic-wrap">
+              <svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="k">Phone</div>
+              <div class="v">010 · 8780 · 9756</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ic-wrap">
+              <svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="k">Location</div>
+              <div class="v">서울특별시 동작구</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <a href="https://four-plywood-6e1.notion.site/_-261e77c346428085a587d0f3fe6e8f17" target="_blank" rel="noopener" class="filled-btn">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Notion 경력기술서 열기
+          </a>
+          <a href="mailto:kimwh564@naver.com" class="tonal-btn">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            이메일 보내기
+          </a>
+        </div>
+      </div>
+
+      <footer>
+        <div>김지혜 · JI HYE, KIM · 金知慧</div>
+        <div>© 2026 · Updated May 2026</div>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============== PROJECT DETAIL SHEET ============== -->
+<div class="sheet-overlay" id="sheet-overlay">
+  <div class="sheet" id="sheet">
+    <div class="sheet-head">
+      <span class="sheet-cat-chip" id="sheet-cat-chip">Project</span>
+      <span class="sheet-org" id="sheet-org"></span>
+      <button class="sheet-close" id="sheet-close" aria-label="Close">
+        <svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // PROJECT DATA
+  // ============================================================
+  const PROJECTS = [
+    {
+      id: 'jira-as', cat: 'EV Operations', catClass: 'cat-evcharge',
+      org: '현대엔지니어링 EVC센터 · 2025',
+      title: 'JIRA 기반 A/S 접수·대응 체계 구축',
+      sub: '메신저·전화·엑셀로 분산되어있던 A/S를 <strong>단일 시스템으로 통합</strong>. <em>장애 데이터를 자산으로</em> 바꾸다.',
+      result: '단일 시스템 운영 정착',
+      stats: [
+        { n: '4 → 1', l: '접수 채널 통합 (메신저·전화·엑셀 → JIRA)' },
+        { n: '5단계', l: '접수→분석→제조사조치→모니터링→종결 표준화' },
+        { n: '품질회의', l: '제조사·충전소·장애 유형별 가시화 자료 활용' },
+      ],
+      problem: 'EV 충전 인프라 확대로 충전기 장애·결제 오류·통신 불량 이슈가 다발했습니다. 초기 A/S 접수가 메신저·전화·엑셀로 분산되어 중복 접수, 처리 경과 공유 부족, 담당자별 대응 편차, 제조사 커뮤니케이션 비체계, 장애 데이터 자산화 어려움이 누적되고 있었습니다.',
+      actions: [
+        '기존 A/S 접수·처리 흐름 파악 및 누락·중복 정보 프로세스 맵 정리',
+        '필수 입력 항목 정의(충전기 ID, 시간대, 결제 방식, 차량 정보, 오류 코드 등) 및 JIRA 이슈 폼 설계',
+        '장애 유형별 카테고리·태그 체계 설계(고장·통신·결제·사용자 조작 오류 구분)',
+        '관제·CS·현장·제조사 권한 및 워크플로우 지정, 이슈 상태 표준화(접수→분석중→제조사 조치중→모니터링→종결)',
+        '도입 초기 직접 등록·교육·가이드 제공으로 사용 정착',
+      ],
+      learned: '<strong>운영 관점에서 A/S 흐름을 구조 분석</strong>하고 JIRA를 활용해 프로세스를 재설계. <em>사후 대응을 넘어 품질 개선으로 연결하는 사고</em>. 다부서가 공통 시스템에서 협업하도록 설계하는 능력.',
+      skills: ['JIRA', 'Process Design', 'Workflow', 'Data 자산화', '다부서 협업'],
+    },
+    {
+      id: 'ecu-connector', cat: 'Quality', catClass: 'cat-quality',
+      org: '패커드코리아 · 2022',
+      title: 'ECU 커넥터 불량 개선 및 통합 설계',
+      sub: '<strong>접점 불량 90% 감소</strong>, 통합 설계로 <strong>연 2,400만원 원가 절감</strong>. 그리고 <em>SPLICE Double Clamping 자체 검증</em>.',
+      result: '연 2,400만원 절감 + 고객 품질 승인',
+      stats: [
+        { n: '90%↓', l: '접점 불량률 감소' },
+        { n: '2,400만원', l: '연간 원가 절감 (커넥터 통합 설계)' },
+        { n: '승인', l: 'SPLICE Double Clamping 고객 품질 승인' },
+      ],
+      problem: 'ECU 커넥터에서 접점 불량이 반복 발생해 양산 라인의 품질 리스크가 높았습니다. 신규 Assy 케이블의 조립성 문제도 함께 해결해야 했고, SPLICE Double Clamping 구조에 대한 신뢰성 시험은 자체 설계가 필요한 상황이었습니다.',
+      actions: [
+        'ECU 커넥터 접점 불량 원인 분석 후 대체 단자 도입을 통해 불량률 90% 이상 감소',
+        '신규 Assy 케이블 조립성 개선 설계로 품질 리스크 해소',
+        '도어–루프 커넥터 통합 설계로 연 2,400만원 원가 절감',
+        'SPLICE Double Clamping 구조에 대한 자체 신뢰성 시험 설계 및 고객 승인 획득',
+        '협력사 기술 협의 및 RFQ 대응, COST 자료 작성, BOM DATA 생성 및 ERP 등록',
+      ],
+      learned: '<strong>도면 한 장이 양산 라인의 비용·품질·납기로 곧장 환산된다는 감각</strong>. <em>신뢰성 시험을 자체 설계하고 고객 승인까지 끌어내는 정량적 검증 역량</em>.',
+      skills: ['하네스 회로 설계', 'COST 분석', '신뢰성 시험', 'Validation', 'BOM·ERP', '벤치마킹'],
+    },
+    {
+      id: 'cable-weight', cat: 'Quality', catClass: 'cat-quality',
+      org: '아이파킹 · 2024',
+      title: '급속 충전기 케이블 중량·내구성 개선',
+      sub: '피닉스·EL·유라 시제품을 <strong>직접 비교 검증</strong>. <em>사용자 편의성과 라이프사이클 비용</em>을 동시에 풀다.',
+      result: '편의성·내구성 동시 만족 사양 정립',
+      stats: [
+        { n: '3社', l: '제조사 시제품 비교(피닉스·EL·유라)' },
+        { n: '5축', l: '중량·유연성·내구성·온도·인장 평가' },
+        { n: '레퍼런스', l: '향후 충전소 구축 표준 사양 정립' },
+      ],
+      problem: '굵고 무거운 급속 케이블로 사용자 피로·불편이 컸고, 케이블 처짐, 손잡이 파손, 커넥터 단선 등 내구성 이슈가 반복되었습니다. 프리미엄 충전소 확대로 편의성과 내구성을 동시에 만족하는 사양이 필요했습니다.',
+      actions: [
+        '기존 문제(무게·경도·꺾임·피복 손상·커넥터 피로도) 정리 및 현장 민원·기사 피드백 수집',
+        '제조사 제안 사양(도체 굵기·피복 재질·온도 특성·인장 강도·최소곡률 반경 등) 평가 기준표 작성',
+        '시제품을 현장 충전소에 직접 설치 테스트, 온도 및 설치 환경별 유연성·편의성 점검',
+        '포장·배선 경로·거치대 궁합 등 실사용 조건 통합 평가',
+        '최종 사양에 대해 제조사와 납기·MOQ·A/S 협의, 구축 일정 조율',
+      ],
+      learned: '<strong>사용자 경험 관점에서 개선을 도출</strong>하고, 정량·정성 평가를 비교해 <em>다수 이해관계자의 의견에서 공통분모를 찾아내는 능력</em>. 라이프사이클 비용 시각.',
+      skills: ['시제품 비교 검증', '사양 평가', '제조사 협상', '현장 테스트', 'UX 관점'],
+    },
+    {
+      id: 'env-policy', cat: 'Policy', catClass: 'cat-policy',
+      org: '아이파킹 · 2024–25',
+      title: '환경부 스마트제어 보조금 정책 대응',
+      sub: '정책 발표부터 적용까지 짧은 시일. <strong>펌웨어·계약·신청 프로세스를 동시에 재설계</strong>해 <em>사업 지연 리스크를 제거</em>.',
+      result: '보조금 연속성 유지 + 전사 적용',
+      stats: [
+        { n: 'PLC', l: '충전 종료·재충전 방지 펌웨어 반영' },
+        { n: '전면', l: '협력업체 계약 구조 재설계' },
+        { n: '0건', l: '사업 지연 리스크 발생' },
+      ],
+      problem: '2025년 환경부가 스마트제어 완속충전기 보조금 기준을 개정. 기존 공사비 외 스탠드폴·캐노피 등 부자재 비용 포함 계약 구조와 PLC 기반 충전 종료·재충전 방지·사용자 설정 기능 구현이 요구되었습니다. 짧은 시일 내 발표·적용으로 기존 계약·충전기로는 대응 불가능한 상황이었습니다.',
+      actions: [
+        '환경부 간담회 참석 후 정책 변경 정리 및 사내 보고, 실행 계획으로 전환',
+        '제조사에 PLC 기반 충전 종료·재충전 방지 기능 구현 요청, 펌웨어 개선 요구서 직접 전달, QA 주도',
+        '협력업체 계약 구조 전면 수정, 시공사·부자재 공급사와 다회 협의 및 조건 정리',
+        '보조금 신청서류 포맷 재설계, 내부 시스템 흐름 재정비',
+        '제조사 펌웨어에 환경부 요구사항 반영, QA 기반 기능 적용 체계 마련',
+      ],
+      learned: '<strong>정책 해석력</strong>. 짧은 시일에도 실행 가능한 프로세스를 설계하는 능력. <em>기술과 비기술 부서 사이에서 요구사항을 번역해 협상하는 커뮤니케이션 능력</em>.',
+      skills: ['정책 분석', '실행 프로세스 설계', '기술 협상', '계약 재설계', 'QA'],
+    },
+    {
+      id: 'bidding', cat: 'Purchasing', catClass: 'cat-purchase',
+      org: '아이파킹 · 2024–25',
+      title: '경쟁입찰을 통한 원가절감',
+      sub: '단일 제조사 의존 구조를 깨고, <strong>자사 인프라를 협상 카드로</strong>. <em>단가 12.5% 인하 + 연 1억원+ 절감</em>.',
+      result: '연 1억원+ 원가 절감',
+      stats: [
+        { n: '12.5%↓', l: '완속 충전기 단가 인하' },
+        { n: '1억원+', l: '연간 원가 절감' },
+        { n: '5,500기', l: '연간 발주 (완속 5,000+급속 500)' },
+      ],
+      problem: '대규모 충전기 도입을 앞두고 단일 제조사 의존이 단가 인상과 A/S 협상력 부족으로 이어지고 있었습니다. 연간 발주 완속 약 5,000기, 급속 약 500기 규모. 공급사 다변화와 경쟁 도입이 필요한 시점이었습니다.',
+      actions: [
+        '제조사별 제안서·기술사양서 정리, 펌웨어·UI·A/S·납기 정량 비교표 작성',
+        '가격·납기·A/S·기술 스펙 4개 항목 정량 평가 기준 수립 및 분석 리포트 작성',
+        '최종 후보 대상 계약 조건·펌웨어·QA 범위 조율 및 단가 협상',
+        '단가 외 운영 품질 유지를 위한 기술 품질 기준서 작성 및 협력사 품질 검토',
+        '자사 인프라(전국 거점 부지)를 협상 카드로 활용, 폴스타·포드·마세라티·기아 등 완성차 브랜드 전략 사업성 극대화',
+      ],
+      learned: '<strong>공급사 평가·선정 역량</strong>. 운영 품질을 지키면서 원가를 절감하는 균형감. <em>문서화·보고 역량으로 의사결정자에게 의사결정 근거를 제공하는 능력</em>.',
+      skills: ['경쟁입찰 설계', '단가협상', '평가표 설계', '계약 관리', '브랜드 협업'],
+    },
+    {
+      id: 'polestar', cat: 'EV Strategy', catClass: 'cat-evcharge',
+      org: '아이파킹 · 2024–25',
+      title: '완성차 브랜드 전용 충전 솔루션',
+      sub: '<strong>폴스타 시작으로 볼보·마세라티 확장</strong>. <em>UI/UX·CS·운영 시스템을 한 패키지로</em>.',
+      result: '브랜드 전용 충전 사업 모델 확립',
+      stats: [
+        { n: '4', l: '완성차 브랜드 (폴스타·볼보·마세라티·기아)' },
+        { n: 'CS', l: '브랜드 충전 정책 및 고객 대응 체계' },
+        { n: 'UX', l: '앱·CMS 기능 기획서 작성' },
+      ],
+      problem: '완성차 브랜드별 충전 경험을 차별화하면서도 운영은 단일 인프라에서 효율적으로 가져가야 하는 과제. 충전기 운영, CS 대응, 펌웨어, 앱 UX가 모두 정렬되어야 했습니다.',
+      actions: [
+        '폴스타·볼보·마세라티 등 브랜드사 충전 정책 기획 및 고객 대응 체계 정립',
+        '충전기 CMS·앱 기능 기획서 작성, 기능 QA 및 테스트 주도',
+        '제조사 펌웨어 취득·업데이트 지원, 펌웨어 QA 및 기능 검증',
+        '충전소 구축 프로젝트 일정 관리 및 협력사 조율',
+        '운영 데이터 분석 및 운영 프로세스 개선',
+      ],
+      learned: '<strong>제품 기획·운영·고객 대응을 같은 사람이 잡을 때 만들어지는 일관성</strong>. <em>다양한 브랜드 톤을 운영 시스템 안에서 정렬하는 능력</em>.',
+      skills: ['브랜드 사업기획', 'UI/UX 기획', '펌웨어 QA', '운영 프로세스', '협력사 조율'],
+    },
+    {
+      id: 'robot-qa', cat: 'Robotics', catClass: 'cat-robot',
+      org: '우아한형제들 · 2023',
+      title: '배달로봇 QA 및 이상 동작 개선',
+      sub: '<strong>도로교통법·건축법 직접 해석</strong>으로 로봇이 다닐 길을 그리고, <em>주행 데이터로 이상 원인</em>을 찾다.',
+      result: '서비스 안정성 향상 + 운영 가이드 정립',
+      stats: [
+        { n: '법령', l: '도로교통법·건축법 직접 검토' },
+        { n: 'α-QA', l: '주행 데이터 기반 이상 동작 분석' },
+        { n: 'JIRA', l: '이슈 관리 체계 구축' },
+      ],
+      problem: '자율주행 배달로봇이 다닐 수 있는 길과 환경이 법령·현장 조건마다 달랐고, 알파 테스트 단계에서 경로 이탈·센서 인식 오류가 반복되어 서비스 안정성을 보장하기 어려웠습니다.',
+      actions: [
+        '자율주행 로봇의 주행 허용 구역 및 관련 법령(도로교통법·건축법 등) 검토',
+        '서비스 가능 지역 사전 분석 및 관련 조항 적용 여부 판단, 운영 가이드 및 주행 로직 개선',
+        '자율주행 배달로봇 알파 테스트 QA 및 기능 검증',
+        '로봇 주행 데이터 분석 및 이상 동작 원인 분석',
+        'JIRA 기반 이슈 등록·관리, 개발팀·제조사 협업으로 기능 개선',
+        'CS 대응, 외부 계약자 대상 서비스 설명 및 운영 매뉴얼 제작',
+      ],
+      learned: '<strong>비기술 영역(법령)을 기술 의사결정으로 번역하는 능력</strong>. <em>데이터에서 이상 동작 패턴을 찾고 개발팀·제조사와 협업해 코드·하드웨어로 풀어내는 협업력</em>.',
+      skills: ['법령 해석', '주행 QA', '이상 패턴 분석', 'JIRA', 'CS', '운영 매뉴얼'],
+    },
+    {
+      id: 'commercial-vehicle', cat: 'Design', catClass: 'cat-design',
+      org: '에이팸 · 2019–22',
+      title: '신규 3.5톤 상용차 하네스 개발',
+      sub: '<strong>VINFAST 베트남 신규 공장 양산 대응</strong>까지. <em>도면이 라인의 비용·품질·일정으로 환산되는 전 과정</em>.',
+      result: '양산 안정화 + 베트남 공장 초기 설계 안정화',
+      stats: [
+        { n: '3.5t', l: '신규 상용차 하네스 개발' },
+        { n: 'VINFAST', l: '베트남 신규 공장 대응' },
+        { n: '사전차단', l: '양산 리스크 사전 차단 검증' },
+      ],
+      problem: '신규 3.5톤 상용차 하네스를 처음부터 개발해야 했고, 동시에 VINFAST 베트남 신규 생산공장의 초기 설계 안정화도 함께 진행. 양산 리스크를 사전에 차단해야 했습니다.',
+      actions: [
+        '승용차·상용차 와이어링 하네스 회로 설계, 경로 설계, 제조 설계 수행',
+        'RFQ 대응 및 견적 산출, 원가 검토 및 COST 자료 작성',
+        'Proto Sample 제작 및 부품 사양 검토, 신규 자재 선정',
+        '하네스 도면 작성·관리, BOM 정리, 설계 변경 관리',
+        '베트남 신규 공장 생산 가능성 검토 및 양산 대응 설계 검토',
+        '고객사 Design Review 대응 및 설계 변경 업무 수행',
+        '시제품 제작 및 실차 조립 테스트로 설계 검증',
+      ],
+      learned: '<strong>신규 차종을 처음부터 끝까지 책임지는 흐름 경험</strong>. 해외 신규 공장의 초기 설계 안정화에서 오는 양산 리스크 감각. <em>회로 설계자가 원가·일정·품질을 함께 보는 시야</em>.',
+      skills: ['회로·경로·제조 설계', 'RFQ·COST', '프로토 샘플', 'BOM 관리', '실차 검증', 'DR 대응'],
+    },
+  ];
+
+  // ============================================================
+  // RENDER PROJECTS
+  // ============================================================
+  const grid = document.getElementById('projects-grid');
+
+  function renderProjects(filter = 'all') {
+    grid.innerHTML = '';
+    PROJECTS.filter(p => filter === 'all' || p.catClass === filter).forEach(p => {
+      const card = document.createElement('div');
+      card.className = `pj ${p.catClass}`;
+      card.innerHTML = `
+        <div class="pj-strip"></div>
+        <div class="pj-body">
+          <div class="pj-meta">
+            <span class="pj-cat-chip">${p.cat}</span>
+            <span class="pj-org">${p.org}</span>
+          </div>
+          <div class="pj-title">${p.title}</div>
+          <div class="pj-sub">${p.sub}</div>
+          <div class="pj-stats">
+            ${p.stats.map(s => `<div class="pj-stat"><div class="n">${s.n}</div><div class="l">${s.l}</div></div>`).join('')}
+          </div>
+          <div class="pj-result">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <b>${p.result}</b>
+          </div>
+        </div>
+        <div class="pj-foot">
+          <span class="pj-arrow">자세히 보기 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      `;
+      card.addEventListener('click', () => openSheet(p));
+      grid.appendChild(card);
+    });
+  }
+  renderProjects();
+
+  // filter buttons
+  document.querySelectorAll('#pj-filters .filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#pj-filters .filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProjects(btn.dataset.filter);
+    });
+  });
+
+  // ============================================================
+  // SHEET
+  // ============================================================
+  const overlay = document.getElementById('sheet-overlay');
+  const sheet   = document.getElementById('sheet');
+  const body    = document.getElementById('sheet-body');
+  const catChip = document.getElementById('sheet-cat-chip');
+  const orgEl   = document.getElementById('sheet-org');
+
+  function openSheet(p) {
+    sheet.className = 'sheet ' + p.catClass;
+    catChip.textContent = p.cat;
+    orgEl.textContent = p.org;
+
+    body.innerHTML = `
+      <h2>${p.title}</h2>
+      <p class="lede">${p.sub}</p>
+
+      <div class="sheet-stats">
+        ${p.stats.map(s => `<div class="sheet-stat"><div class="n">${s.n}</div><div class="l">${s.l}</div></div>`).join('')}
+      </div>
+
+      <div class="sheet-section">
+        <div class="sheet-h"><span class="h-num">01</span>Background · 배경</div>
+        <div class="sheet-narrative">${p.problem}</div>
+      </div>
+
+      <div class="sheet-section">
+        <div class="sheet-h"><span class="h-num">02</span>Actions · 실행</div>
+        <ul class="sheet-list">
+          ${p.actions.map((a, i) => `<li><span class="ix">${String(i+1).padStart(2,'0')}</span><span>${a}</span></li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="sheet-section">
+        <div class="sheet-h"><span class="h-num">03</span>Outcome · 획득 역량</div>
+        <div class="sheet-narrative">
+          ${p.learned}
+          <div class="sheet-skills">
+            ${p.skills.map(s => `<span class="chip">${s}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('sheet-close').addEventListener('click', closeSheet);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeSheet(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+  // ============================================================
+  // NAV ACTIVE
+  // ============================================================
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = ['impact', 'career', 'projects', 'capabilities', 'contact']
+    .map(id => document.getElementById(id));
+  function updateActive() {
+    const y = window.scrollY + 140;
+    let active = sections[0];
+    sections.forEach(s => { if (s && s.offsetTop <= y) active = s; });
+    navLinks.forEach(l => {
+      l.classList.toggle('active', active && l.getAttribute('href') === '#' + active.id);
+    });
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+
+  // smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

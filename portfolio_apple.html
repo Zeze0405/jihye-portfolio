@@ -1,0 +1,1407 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김지혜 · Portfolio — Quality, EV Charging, Wiring Harness</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* ============================================================
+     Apple-inspired layer on top of the design system tokens.
+     Quieter. More whitespace. Hairlines instead of cards.
+     ============================================================ */
+
+  :root {
+    --hairline: rgba(0, 0, 0, 0.08);
+    --hairline-strong: rgba(0, 0, 0, 0.14);
+    --ink: #1d1d1f;
+    --ink-2: #424245;
+    --ink-3: #6e6e73;
+    --ink-4: #86868b;
+    --bg: #fbfbfd;
+    --bg-elev: #ffffff;
+    --bg-tint: #f5f5f7;
+    --accent: #0d9abf;
+    --accent-deep: #096d88;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--ink);
+    letter-spacing: -0.022em;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+  }
+  h1, h2, h3, h4, h5 { margin: 0; letter-spacing: -0.025em; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* ---------- Top nav (Apple style: thin, glassy, fixed) ---------- */
+  .nav {
+    position: fixed; inset: 0 0 auto 0;
+    height: 52px;
+    background: rgba(251,251,253,0.82);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--hairline);
+    z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1024px;
+    display: flex; align-items: center; gap: 28px;
+    padding: 0 22px;
+    font-size: 13px; font-weight: 500;
+  }
+  .nav-brand {
+    font-weight: 600; color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-right: auto;
+  }
+  .nav-brand .dot { color: var(--accent); }
+  .nav a.nav-link {
+    color: var(--ink-3);
+    transition: color .2s ease;
+  }
+  .nav a.nav-link:hover, .nav a.nav-link.active { color: var(--ink); }
+  .nav .nav-cta {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ---------- Layout container ---------- */
+  .container {
+    max-width: 1024px; margin: 0 auto;
+    padding: 0 22px;
+  }
+  main { padding-top: 52px; }
+
+  /* ============================================================
+     HERO — full viewport, big calm headline, three vital stats
+     ============================================================ */
+  .hero {
+    padding: 140px 0 120px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero .eyebrow {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 7vw, 84px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 960px;
+  }
+  .hero h1 .muted { color: var(--ink-3); }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(19px, 2vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 720px;
+    margin-bottom: 64px;
+    font-weight: 400;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .hero-meta > div {
+    padding: 24px 24px 0 0;
+    border-right: 1px solid var(--hairline);
+  }
+  .hero-meta > div:last-child { border-right: none; padding-right: 0; }
+  .hero-meta .k {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-4);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .hero-meta .v {
+    font-size: 17px; font-weight: 500; color: var(--ink);
+    line-height: 1.35;
+  }
+  .hero-meta .v small { display: block; font-size: 13px; color: var(--ink-3); font-weight: 400; margin-top: 4px; }
+
+  /* ---------- Section primitives ---------- */
+  section.block {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+    max-width: 760px;
+    margin-bottom: 20px;
+  }
+  .section-sub {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-3);
+    max-width: 640px;
+    margin-bottom: 64px;
+  }
+
+  /* ============================================================
+     SIGNATURE METRICS — three bold numbers, hairline divided
+     ============================================================ */
+  .signature {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .signature > div {
+    padding: 56px 32px;
+    border-right: 1px solid var(--hairline);
+    transition: background .25s ease;
+  }
+  .signature > div:last-child { border-right: none; }
+  .signature > div:hover { background: var(--bg-tint); }
+  .signature .num {
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.04em;
+    margin-bottom: 14px;
+  }
+  .signature .num .unit {
+    font-size: 0.45em; color: var(--ink-3); font-weight: 600;
+  }
+  .signature .label {
+    font-size: 17px; color: var(--ink-2); font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .signature .meta {
+    font-size: 13px; color: var(--ink-4);
+    line-height: 1.5;
+  }
+  .signature .tag {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ============================================================
+     EXPERIENCE TIMELINE — Apple-clean, year on left, content right
+     ============================================================ */
+  .timeline { display: flex; flex-direction: column; }
+  .role {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-top: 1px solid var(--hairline);
+    align-items: start;
+  }
+  .role:first-child { border-top: none; padding-top: 0; }
+  .role-when {
+    position: sticky; top: 76px;
+  }
+  .role-year {
+    font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em;
+  }
+  .role-span {
+    font-size: 13px; color: var(--ink-4); margin-top: 4px;
+  }
+  .role-current {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 14px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .role-current::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(13, 154, 191, 0.5);
+    animation: ping 1.8s cubic-bezier(0,0,.2,1) infinite;
+  }
+  @keyframes ping {
+    0% { box-shadow: 0 0 0 0 rgba(13, 154, 191, 0.45); }
+    80%, 100% { box-shadow: 0 0 0 8px rgba(13, 154, 191, 0); }
+  }
+  .role-domain {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-4);
+    margin-top: 14px;
+  }
+  .role-content { padding-top: 4px; }
+  .role-org {
+    font-size: 13px; color: var(--ink-3); font-weight: 500; margin-bottom: 6px;
+  }
+  .role-title {
+    font-size: 30px; font-weight: 700; color: var(--ink);
+    line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.025em;
+  }
+  .role-summary {
+    font-size: 17px; color: var(--ink-2); line-height: 1.55;
+    margin-bottom: 28px;
+    max-width: 620px;
+  }
+  .role-keywords {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 28px;
+  }
+  .kw {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 5px 11px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    color: var(--ink-2);
+    background: var(--bg-elev);
+  }
+  .kw.pri { color: var(--accent); border-color: rgba(13,154,191,0.25); background: rgba(13,154,191,0.06); }
+
+  .role-highlights {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 14px;
+  }
+  .role-highlights li {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 14px;
+    font-size: 15px; line-height: 1.55; color: var(--ink-2);
+  }
+  .role-highlights li::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--ink); margin-top: 9px; margin-left: 5px;
+  }
+  .role-highlights li b {
+    color: var(--ink); font-weight: 600;
+  }
+  .role-highlights li .num {
+    font-variant-numeric: tabular-nums;
+    color: var(--accent); font-weight: 700;
+  }
+
+  /* ============================================================
+     FEATURED PROJECTS — Apple product-card style
+     Clickable cards open detail panel.
+     ============================================================ */
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .pj {
+    background: var(--bg-elev);
+    border-radius: 22px;
+    padding: 36px 32px 32px;
+    border: 1px solid var(--hairline);
+    cursor: pointer;
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    overflow: hidden;
+  }
+  .pj::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--cat-tint, transparent);
+    opacity: 0;
+    transition: opacity .25s ease;
+    pointer-events: none;
+  }
+  .pj:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 48px -20px rgba(0,0,0,0.18);
+    border-color: var(--hairline-strong);
+  }
+  .pj:hover::before { opacity: 0.5; }
+  .pj > * { position: relative; z-index: 1; }
+
+  .pj-cat {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cat-color, var(--accent));
+    margin-bottom: 18px;
+  }
+  .pj-cat .swatch {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cat-color, var(--accent));
+  }
+  .pj-title {
+    font-size: 24px; font-weight: 700; color: var(--ink);
+    line-height: 1.2; margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .pj-sub {
+    font-size: 14px; color: var(--ink-3); line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  .pj-result {
+    font-size: 13px; color: var(--ink-4);
+    text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .pj-headline {
+    font-size: 17px; font-weight: 600; color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 28px;
+  }
+  .pj-headline .num {
+    color: var(--cat-color, var(--accent));
+    font-variant-numeric: tabular-nums;
+  }
+  .pj-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--hairline);
+    font-size: 12px; color: var(--ink-3);
+  }
+  .pj-org { font-weight: 600; color: var(--ink-2); }
+  .pj-arrow {
+    font-size: 13px; color: var(--cat-color, var(--accent));
+    font-weight: 600;
+    transition: transform .2s ease;
+  }
+  .pj:hover .pj-arrow { transform: translateX(4px); }
+
+  /* category color tinting */
+  .cat-evcharge { --cat-color: #0d9abf; --cat-tint: linear-gradient(180deg, rgba(13,154,191,0.05), transparent 70%); }
+  .cat-quality  { --cat-color: #d97757; --cat-tint: linear-gradient(180deg, rgba(217,119,87,0.06), transparent 70%); }
+  .cat-purchase { --cat-color: #059669; --cat-tint: linear-gradient(180deg, rgba(5,150,105,0.06), transparent 70%); }
+  .cat-design   { --cat-color: #7c3aed; --cat-tint: linear-gradient(180deg, rgba(124,58,237,0.05), transparent 70%); }
+  .cat-policy   { --cat-color: #b45309; --cat-tint: linear-gradient(180deg, rgba(180,83,9,0.06), transparent 70%); }
+  .cat-robot    { --cat-color: #1e40af; --cat-tint: linear-gradient(180deg, rgba(30,64,175,0.05), transparent 70%); }
+
+  /* ============================================================
+     PROJECT DETAIL — modal sheet, Apple-style
+     ============================================================ */
+  .sheet-overlay {
+    position: fixed; inset: 0;
+    background: rgba(20,20,24,0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 200;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .sheet-overlay.open { opacity: 1; pointer-events: auto; }
+  .sheet {
+    width: 100%; max-width: 920px;
+    height: 92vh;
+    background: var(--bg-elev);
+    border-radius: 24px 24px 0 0;
+    transform: translateY(40px);
+    transition: transform .35s cubic-bezier(0.32,0.72,0,1);
+    overflow-y: auto;
+    box-shadow: 0 -20px 60px -10px rgba(0,0,0,0.25);
+  }
+  .sheet-overlay.open .sheet { transform: translateY(0); }
+  .sheet-head {
+    position: sticky; top: 0;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--hairline);
+    padding: 16px 32px;
+    display: flex; align-items: center; gap: 16px;
+    z-index: 5;
+  }
+  .sheet-cat {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--cat-color, var(--accent));
+  }
+  .sheet-close {
+    margin-left: auto;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--bg-tint); border: none;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-2); font-size: 14px;
+  }
+  .sheet-close:hover { background: #e8e8ed; }
+  .sheet-body { padding: 48px 56px 80px; }
+  .sheet-body h2 {
+    font-size: 40px; font-weight: 700; color: var(--ink);
+    line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 18px;
+    max-width: 720px;
+  }
+  .sheet-body .lede {
+    font-size: 19px; color: var(--ink-2); line-height: 1.55;
+    margin-bottom: 48px; max-width: 680px;
+  }
+  .sheet-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 56px;
+  }
+  .sheet-stats > div {
+    padding: 28px 24px 28px 0;
+    border-right: 1px solid var(--hairline);
+  }
+  .sheet-stats > div:last-child { border-right: none; }
+  .sheet-stats .n {
+    font-size: 36px; font-weight: 700; line-height: 1;
+    color: var(--cat-color, var(--accent));
+    margin-bottom: 8px; letter-spacing: -0.03em;
+  }
+  .sheet-stats .l { font-size: 13px; color: var(--ink-3); line-height: 1.45; }
+
+  .sheet-grid {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 56px;
+    margin-bottom: 48px;
+  }
+  .sheet-grid h3 {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 700; color: var(--ink-4);
+    line-height: 1.4;
+  }
+  .sheet-grid .narrative {
+    font-size: 16px; line-height: 1.65; color: var(--ink-2);
+  }
+  .sheet-grid ul {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 12px;
+  }
+  .sheet-grid ul li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 8px;
+    font-size: 15px; color: var(--ink-2); line-height: 1.55;
+  }
+  .sheet-grid ul li .ix {
+    font-size: 12px; font-weight: 700; color: var(--cat-color, var(--accent));
+    font-variant-numeric: tabular-nums;
+    margin-top: 3px;
+  }
+
+  .sheet-skills {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 12px;
+  }
+  .sheet-skills .kw {
+    background: var(--bg-tint);
+    border-color: transparent;
+  }
+
+  /* ============================================================
+     CAPABILITIES — clean grid of competency areas
+     ============================================================ */
+  .caps {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+    border-left: 1px solid var(--hairline);
+  }
+  .cap {
+    padding: 36px 32px 36px;
+    border-right: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    background: var(--bg-elev);
+  }
+  .cap-icon {
+    width: 36px; height: 36px;
+    margin-bottom: 24px;
+    color: var(--accent);
+  }
+  .cap h4 {
+    font-size: 19px; font-weight: 600; color: var(--ink);
+    margin-bottom: 10px; letter-spacing: -0.02em;
+  }
+  .cap p {
+    font-size: 14px; line-height: 1.55; color: var(--ink-3);
+    margin-bottom: 16px;
+  }
+  .cap .tools {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-4);
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     DOMAIN COVERAGE — flat tag cloud, organized
+     ============================================================ */
+  .domains {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    padding: 32px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .domain-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-4);
+    padding-top: 8px;
+  }
+  .domain-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+
+  /* ============================================================
+     ACTIVITIES — small horizontal cards
+     ============================================================ */
+  .acts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .act {
+    background: var(--bg-elev);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    padding: 28px 28px 26px;
+  }
+  .act .yr { font-size: 12px; color: var(--ink-4); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 14px; }
+  .act h4 { font-size: 18px; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 10px; letter-spacing: -0.015em; }
+  .act p { font-size: 14px; color: var(--ink-3); line-height: 1.55; margin-bottom: 14px; }
+  .act .stat { font-size: 13px; color: var(--ink-2); font-weight: 500; }
+  .act .stat .n { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* ============================================================
+     CONTACT — big quiet final block
+     ============================================================ */
+  .contact {
+    padding: 140px 0 120px;
+    text-align: left;
+  }
+  .contact h2 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700; line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 880px;
+    letter-spacing: -0.03em;
+  }
+  .contact h2 .accent { color: var(--accent); }
+  .contact .sub {
+    font-size: 19px; line-height: 1.6; color: var(--ink-3);
+    margin-bottom: 64px; max-width: 600px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .contact-grid > div {
+    padding: 28px 32px 28px 0;
+    border-right: 1px solid var(--hairline);
+  }
+  .contact-grid > div:last-child { border-right: none; }
+  .contact-grid .k { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); font-weight: 600; margin-bottom: 12px; }
+  .contact-grid .v { font-size: 17px; color: var(--ink); font-weight: 500; }
+  .contact-grid .v a:hover { color: var(--accent); }
+
+  footer {
+    padding: 32px 0 64px;
+    font-size: 12px;
+    color: var(--ink-4);
+    border-top: 1px solid var(--hairline);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 880px) {
+    .role { grid-template-columns: 1fr; gap: 16px; }
+    .role-when { position: static; }
+    .projects, .signature, .caps, .acts, .contact-grid, .hero-meta, .sheet-stats { grid-template-columns: 1fr; }
+    .signature > div, .hero-meta > div, .contact-grid > div { border-right: none; border-bottom: 1px solid var(--hairline); }
+    .signature > div:last-child, .hero-meta > div:last-child, .contact-grid > div:last-child { border-bottom: none; }
+    .caps { grid-template-columns: 1fr; }
+    .sheet-grid { grid-template-columns: 1fr; gap: 16px; }
+    .sheet-body { padding: 32px 24px 64px; }
+    .domains { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== TOP NAV ============== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">김지혜<span class="dot">.</span></div>
+    <a class="nav-link" href="#career">Career</a>
+    <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#capabilities">Capabilities</a>
+    <a class="nav-link" href="#contact">Contact</a>
+    <a class="nav-cta" href="#contact">이력서 →</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero" data-screen-label="01 Hero">
+    <div class="container">
+      <div class="eyebrow">Quality · EV Charging · Wiring Harness</div>
+      <h1>
+        제품·운영·정책의<br>
+        <span class="muted">경계에서 문제를 풀어온</span><br>
+        <span class="accent">엔지니어 출신 매니저</span>입니다.
+      </h1>
+      <p class="lede">
+        와이어링 하네스 회로 설계로 시작해 자율주행 로봇 QA, EV 충전 인프라 운영·기획까지.
+        7년간 자동차·모빌리티 산업의 설계, 품질, 구매, 정책 대응을 한 사람이 한 흐름으로 풀어왔습니다.
+      </p>
+
+      <div class="hero-meta">
+        <div>
+          <div class="k">현재</div>
+          <div class="v">현대엔지니어링 EVC센터<small>사원 · 2025.06–재직중</small></div>
+        </div>
+        <div>
+          <div class="k">전문 영역</div>
+          <div class="v">EV 충전 운영<small>QA · 정산 · 펌웨어</small></div>
+        </div>
+        <div>
+          <div class="k">총 경력</div>
+          <div class="v">7년+<small>설계 3년 · 모빌리티 1년 · EV 2년+</small></div>
+        </div>
+        <div>
+          <div class="k">위치</div>
+          <div class="v">서울 동작구<small>kimwh564@naver.com</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SIGNATURE METRICS ============== -->
+  <section class="block" id="impact" data-screen-label="02 Impact">
+    <div class="container">
+      <div class="section-eyebrow">Selected Impact</div>
+      <h2 class="section-title">측정 가능한 결과로 말합니다.</h2>
+      <p class="section-sub">설계도 운영도, 끝은 항상 숫자로 떨어집니다. 7년간 만들어낸 변화 중 일부.</p>
+    </div>
+    <div class="container">
+      <div class="signature">
+        <div>
+          <div class="num">12.5<span class="unit">%</span></div>
+          <div class="label">완속 충전기 단가 인하</div>
+          <div class="meta">경쟁입찰 도입으로 연 1억원+ 원가 절감.<br>완속 5,000기 / 급속 500기 도입 계약.</div>
+          <span class="tag">Purchasing</span>
+        </div>
+        <div>
+          <div class="num">90<span class="unit">%↓</span></div>
+          <div class="label">ECU 커넥터 불량률 감소</div>
+          <div class="meta">접점 불량 원인 분석 및 대체 단자 도입.<br>커넥터 통합 설계로 연 2,400만원 절감.</div>
+          <span class="tag">Quality</span>
+        </div>
+        <div>
+          <div class="num">2,400<span class="unit">만원</span></div>
+          <div class="label">연간 원가 절감</div>
+          <div class="meta">도어–루프 커넥터 통합 설계 및<br>SPLICE Double Clamping 구조 자체 검증.</div>
+          <span class="tag">Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CAREER TIMELINE ============== -->
+  <section class="block" id="career" data-screen-label="03 Career">
+    <div class="container">
+      <div class="section-eyebrow">Career</div>
+      <h2 class="section-title">설계 → 모빌리티 → EV 인프라.</h2>
+      <p class="section-sub">하드웨어를 직접 그리던 사람이 시스템을 설계하는 사람으로. 7년의 흐름은 한 줄로 이어집니다.</p>
+
+      <div class="timeline">
+
+        <!-- Hyundai Engineering -->
+        <article class="role">
+          <div class="role-when">
+            <div class="role-year">2025</div>
+            <div class="role-span">2025.06 – 재직중</div>
+            <div class="role-current">현재 재직중</div>
+            <div class="role-domain">EV Operations</div>
+          </div>
+          <div class="role-content">
+            <div class="role-org">현대엔지니어링 · EVC센터</div>
+            <h3 class="role-title">EV 충전 인프라 운영 · 사원</h3>
+            <p class="role-summary">
+              JIRA 기반 A/S 체계 정립, 제조사 펌웨어 검증, 운영 데이터 분석으로
+              충전 인프라 가동률과 고객 응대 품질을 동시에 끌어올리고 있습니다.
+            </p>
+            <div class="role-keywords">
+              <span class="kw pri">JIRA</span>
+              <span class="kw pri">QA</span>
+              <span class="kw">펌웨어 검증</span>
+              <span class="kw">정산 운영</span>
+              <span class="kw">데이터 분석</span>
+              <span class="kw">스마트제어</span>
+            </div>
+            <ul class="role-highlights">
+              <li><span><b>JIRA 기반 A/S 체계 개선</b> — 메신저·전화·엑셀로 분산되어있던 접수를 단일 시스템으로 통합, 장애 패턴 분석 가능 구조로 전환.</span></li>
+              <li><span><b>스마트제어 충전기 환경부 인증 연동 테스트</b> 주도, 제조사 펌웨어 QA 및 운영 적용.</span></li>
+              <li><span><b>월별 정산 프로세스 고도화</b> — E-PIT 및 타사 로밍 데이터 검증, 손실 요인 분석 기반 프로모션 비용 산정.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- iParking -->
+        <article class="role">
+          <div class="role-when">
+            <div class="role-year">2024</div>
+            <div class="role-span">2024.07 – 2025.06</div>
+            <div class="role-domain">EV Strategy</div>
+          </div>
+          <div class="role-content">
+            <div class="role-org">아이파킹 · EV개발기획팀</div>
+            <h3 class="role-title">EV 충전 사업 기획 · 매니저</h3>
+            <p class="role-summary">
+              완성차 브랜드 충전 사업, 정부 정책 대응, 대규모 구매 협상까지.
+              사업·기술·정책이 만나는 지점에서 EV 충전 서비스의 운영 표준을 만들었습니다.
+            </p>
+            <div class="role-keywords">
+              <span class="kw pri">사업기획</span>
+              <span class="kw pri">구매</span>
+              <span class="kw">펌웨어 QA</span>
+              <span class="kw">CMS · 앱 기획</span>
+              <span class="kw">정책 대응</span>
+              <span class="kw">완성차 협업</span>
+            </div>
+            <ul class="role-highlights">
+              <li><span><b>완속 충전기 단가 <span class="num">12.5%</span> 인하</b> — 경쟁입찰 도입, 연 1억원+ 원가 절감.</span></li>
+              <li><span><b>폴스타 브랜드 전용 충전소 구축</b> — UI/UX 기획, CS 대응 체계, 볼보·마세라티 확장 기반 마련.</span></li>
+              <li><span><b>환경부 스마트제어 보조금 정책 대응</b> — PLC 기반 충전 종료/재충전 방지 기능 펌웨어 반영, 전사 계약 구조 재설계.</span></li>
+              <li><span><b>급속 충전기 케이블 중량·내구성 개선</b> 프로젝트 주관, 피닉스·EL·유라 시제품 비교 검증.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Woowa Bros -->
+        <article class="role">
+          <div class="role-when">
+            <div class="role-year">2023</div>
+            <div class="role-span">2023.02 – 2024.02</div>
+            <div class="role-domain">Robotics QA</div>
+          </div>
+          <div class="role-content">
+            <div class="role-org">우아한형제들 · 로봇배달서비스운영팀</div>
+            <h3 class="role-title">자율주행 배달로봇 운영 · 매니저</h3>
+            <p class="role-summary">
+              도로교통법·건축법을 직접 해석해 로봇이 다닐 수 있는 길을 그리고,
+              주행 데이터로 이상 동작 원인을 분석해 서비스 안정성을 끌어올렸습니다.
+            </p>
+            <div class="role-keywords">
+              <span class="kw pri">자율주행</span>
+              <span class="kw pri">QA</span>
+              <span class="kw">법규 해석</span>
+              <span class="kw">주행 데이터 분석</span>
+              <span class="kw">JIRA</span>
+              <span class="kw">CS</span>
+            </div>
+            <ul class="role-highlights">
+              <li><span><b>주행 허용 구역 법령 해석 및 현장 적용</b> — 서비스 가능 지역 사전 분석 및 운영 가이드 정립.</span></li>
+              <li><span><b>알파 테스트 QA 및 이상 동작 분석</b> — 경로 이탈·센서 인식 오류 개선으로 서비스 안정성 향상.</span></li>
+              <li><span><b>JIRA 기반 이슈 관리 체계 구축</b> — 개발팀·제조사 협업 프로세스 내재화.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Packard Korea -->
+        <article class="role">
+          <div class="role-when">
+            <div class="role-year">2022</div>
+            <div class="role-span">2022.05 – 2023.02</div>
+            <div class="role-domain">Wiring Harness</div>
+          </div>
+          <div class="role-content">
+            <div class="role-org">패커드코리아 · 설계2팀</div>
+            <h3 class="role-title">자동차 와이어링 하네스 설계 · 계장</h3>
+            <p class="role-summary">
+              ECU 커넥터 접점 불량을 90% 이상 줄이고, 통합 설계로 연 2,400만원 원가를 절감했습니다.
+              설계 도면이 곧 양산 품질이라는 감각을 단단히 익힌 기간.
+            </p>
+            <div class="role-keywords">
+              <span class="kw pri">하네스 설계</span>
+              <span class="kw pri">신뢰성 시험</span>
+              <span class="kw">RFQ · 견적</span>
+              <span class="kw">BOM · ERP</span>
+              <span class="kw">벤치마킹</span>
+              <span class="kw">고객 품질 승인</span>
+            </div>
+            <ul class="role-highlights">
+              <li><span><b>ECU 커넥터 불량률 <span class="num">90%↓</span></b> — 접점 불량 원인 분석 및 대체 단자 도입.</span></li>
+              <li><span><b>도어–루프 커넥터 통합 설계로 연 <span class="num">2,400만원</span> 절감.</b></span></li>
+              <li><span><b>SPLICE Double Clamping 구조 자체 신뢰성 시험 설계</b> 및 고객 승인 획득.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Apam -->
+        <article class="role">
+          <div class="role-when">
+            <div class="role-year">2019</div>
+            <div class="role-span">2019.06 – 2022.02</div>
+            <div class="role-domain">R&D · Design</div>
+          </div>
+          <div class="role-content">
+            <div class="role-org">에이팸 · 설계1팀</div>
+            <h3 class="role-title">하네스 회로 · 제조 설계 · 연구원</h3>
+            <p class="role-summary">
+              승용·상용차 하네스를 직접 그리고, VINFAST 베트남 신규 공장 양산 대응까지 수행.
+              설계가 어떻게 양산 라인의 비용·품질·일정으로 환산되는지를 몸으로 배운 시기.
+            </p>
+            <div class="role-keywords">
+              <span class="kw pri">회로 설계</span>
+              <span class="kw pri">상용차</span>
+              <span class="kw">3.5톤 신규 개발</span>
+              <span class="kw">VINFAST 베트남</span>
+              <span class="kw">RFQ · BOM</span>
+              <span class="kw">DR 대응</span>
+            </div>
+            <ul class="role-highlights">
+              <li><span><b>3.5톤 상용차 하네스 신규 개발</b> 참여, 조립성 개선 및 품질 안정화 기여.</span></li>
+              <li><span><b>VINFAST 베트남 신규 공장 대응</b> — 제품 사양 정립 및 초기 설계 안정화 주도, 양산 리스크 사전 차단.</span></li>
+              <li><span>고객사 Design Review 대응, 시제품 실차 조립 테스트로 설계 검증 수행.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Autonics intern -->
+        <article class="role">
+          <div class="role-when">
+            <div class="role-year">2018</div>
+            <div class="role-span">2018.01 – 2018.06</div>
+            <div class="role-domain">Internship</div>
+          </div>
+          <div class="role-content">
+            <div class="role-org">오토닉스 기술연구소 · 모터구동팀</div>
+            <h3 class="role-title">DC 모터 신뢰성 시험 · 인턴</h3>
+            <p class="role-summary">
+              LabVIEW 기반 시험 시스템을 직접 구성하고 반복 구동 데이터로 구동 불안정 요인을 분석.
+              제어기 HMI 경고 메시지 구조까지 설계한 경험.
+            </p>
+            <div class="role-keywords">
+              <span class="kw">LabVIEW</span>
+              <span class="kw">DC 모터</span>
+              <span class="kw">내구 시험</span>
+              <span class="kw">HMI 설계</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FEATURED PROJECTS ============== -->
+  <section class="block" id="projects" data-screen-label="04 Projects">
+    <div class="container">
+      <div class="section-eyebrow">Featured Projects</div>
+      <h2 class="section-title">대표 프로젝트.</h2>
+      <p class="section-sub">EV 충전 운영, 자동차 부품 품질, 신뢰성 검증, 정책 대응. 카드를 누르면 배경 → 실행 → 결과 전체를 볼 수 있습니다.</p>
+
+      <div class="projects" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============== CAPABILITIES ============== -->
+  <section class="block" id="capabilities" data-screen-label="05 Capabilities">
+    <div class="container">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2 class="section-title">한 사람이 다룰 수 있는 영역.</h2>
+      <p class="section-sub">설계자의 눈, 운영자의 손, 기획자의 머리. 셋 모두를 한 프로젝트 안에서 이어붙이는 일을 합니다.</p>
+    </div>
+    <div class="container">
+      <div class="caps">
+
+        <div class="cap">
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h12"/><path d="M3 18h6"/><circle cx="20" cy="12" r="2"/></svg>
+          <h4>설계 · Engineering</h4>
+          <p>와이어링 하네스 회로/경로/제조 설계, RFQ·견적·COST 산출, BOM 관리, 도면 작성. 양산 가능성을 도면 단계에서 판단합니다.</p>
+          <div class="tools">CATIA · ERP · BOM · DR 대응</div>
+        </div>
+
+        <div class="cap">
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h4>품질 · QA</h4>
+          <p>JIRA 기반 이슈 관리 체계 구축, 펌웨어 QA, 신뢰성 시험 설계 및 고객 품질 승인 대응. 자동차·로봇·EV 충전기 모두 경험.</p>
+          <div class="tools">JIRA · 신뢰성 시험 · Validation</div>
+        </div>
+
+        <div class="cap">
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M5 7v13h14V7"/><path d="M9 11h6"/></svg>
+          <h4>구매 · 계약</h4>
+          <p>경쟁입찰 설계, 단가 협상, A/S·납기·기술 사양 통합 평가표 작성. 완속 5,000기/급속 500기 안정 도입 계약 체결 경험.</p>
+          <div class="tools">경쟁입찰 · 단가협상 · 계약관리</div>
+        </div>
+
+        <div class="cap">
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <h4>운영 · Operations</h4>
+          <p>가동률 모니터링, 장애 대응, 월별 실적·정산. E-PIT·로밍 정산 데이터 검증과 손실 요인 분석으로 운영 손실 구조를 가시화.</p>
+          <div class="tools">가동률 모니터링 · 정산 · 데이터 분석</div>
+        </div>
+
+        <div class="cap">
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
+          <h4>데이터 분석</h4>
+          <p>Pandas·NumPy·Scikit-learn 기반 결측·이상치 처리 및 모델링. 자동차 대출 상환 예측 모델, 충전 운영 손실 분석 등 실무 적용.</p>
+          <div class="tools">Python · Pandas · Scikit-learn · Tableau</div>
+        </div>
+
+        <div class="cap">
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          <h4>정책 · 사업기획</h4>
+          <p>환경부 보조금 정책 변경 대응 및 전사 계약 구조 재설계, 폴스타·볼보·마세라티 등 완성차 브랜드 충전 사업 기획.</p>
+          <div class="tools">환경부 정책 대응 · 브랜드 사업기획</div>
+        </div>
+
+      </div>
+
+      <!-- Domain coverage tags -->
+      <div class="domains">
+        <div class="domain-label">Industry</div>
+        <div class="domain-tags">
+          <span class="kw pri">자동차 · 와이어링 하네스</span>
+          <span class="kw pri">EV 충전 인프라</span>
+          <span class="kw pri">자율주행 로봇</span>
+          <span class="kw">상용차</span>
+          <span class="kw">완성차 OEM</span>
+          <span class="kw">스마트제어 충전</span>
+        </div>
+      </div>
+      <div class="domains">
+        <div class="domain-label">Tools · Stack</div>
+        <div class="domain-tags">
+          <span class="kw">JIRA</span>
+          <span class="kw">CATIA</span>
+          <span class="kw">LabVIEW</span>
+          <span class="kw">Python</span>
+          <span class="kw">Pandas</span>
+          <span class="kw">Scikit-learn</span>
+          <span class="kw">TensorFlow</span>
+          <span class="kw">Tableau</span>
+          <span class="kw">ROS</span>
+          <span class="kw">OpenCV</span>
+          <span class="kw">ERP · BOM</span>
+        </div>
+      </div>
+      <div class="domains">
+        <div class="domain-label">Languages</div>
+        <div class="domain-tags">
+          <span class="kw">한국어 (Native)</span>
+          <span class="kw">English (Business)</span>
+          <span class="kw">C / C# / Python</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ACTIVITIES ============== -->
+  <section class="block" id="activities" data-screen-label="06 Activities">
+    <div class="container">
+      <div class="section-eyebrow">Beyond Work</div>
+      <h2 class="section-title">회사 밖에서의 학습.</h2>
+      <p class="section-sub">로봇 동작 인식, AI 빅데이터, 자율주행 모형차. 손으로 직접 만들면서 이어온 학습의 흐름.</p>
+      <div class="acts">
+        <div class="act">
+          <div class="yr">2024.05 – 2024.07</div>
+          <h4>포스코 AI Big Data 아카데미</h4>
+          <p>Big Data 교육 후 실데이터 기반 진단 및 AI 활용 로봇 제작 프로젝트. 자동차 대출 상환 예측 모델로 RandomForest·XGBoost 비교·최적화 수행.</p>
+          <div class="stat">서비스 효율성 <span class="n">+20%</span> · 자율주행 성능 <span class="n">+30%</span></div>
+        </div>
+        <div class="act">
+          <div class="yr">2015.12 – 2019.02</div>
+          <h4>학부연구생 (Frontier)</h4>
+          <p>3D 프린터·센서 활용 자율주행 모형 자동차 제작. C#·Python으로 경로 탐색 및 회피 로직 구현, 초음파·적외선·LiDAR 통합.</p>
+          <div class="stat">회피 정확도 <span class="n">90%+</span> · 경로 탐색 <span class="n">95%</span></div>
+        </div>
+        <div class="act">
+          <div class="yr">2016.04 – 2016.12</div>
+          <h4>LabVIEW 동작 인식 로봇 (NI 주최)</h4>
+          <p>Kinect 스켈레톤 데이터를 LabVIEW에서 실시간 처리, 모터 제어 신호로 변환. 동작–구동 오차 축소 로직 최적화.</p>
+          <div class="stat">데이터 처리 속도 <span class="n">+80%</span> · 동아리 우수 프로젝트 선정</div>
+        </div>
+        <div class="act">
+          <div class="yr">2016.01 – 2016.12</div>
+          <h4>학과 집행부 · 신입생 인솔 및 행사 운영</h4>
+          <p>학과의 날·체육대회·MT 기획·실행, 예산 편성 및 현장 관리. 멘토링 프로그램 운영.</p>
+          <div class="stat">참여율 <span class="n">70%+</span> · 적응률 설문 <span class="n">90%+</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CONTACT ============== -->
+  <section class="contact" id="contact" data-screen-label="07 Contact">
+    <div class="container">
+      <div class="section-eyebrow">Get in touch</div>
+      <h2>설계와 운영을 함께 이해하는 사람을<br>찾고 계신가요. <span class="accent">대화해요.</span></h2>
+      <p class="sub">자동차 부품, EV 충전, 모빌리티 운영, 품질·구매·정책 대응. 어느 자리든 첫 90일을 어떻게 시작할지 이야기 나눠보고 싶습니다.</p>
+      <div class="contact-grid">
+        <div>
+          <div class="k">Email</div>
+          <div class="v"><a href="mailto:kimwh564@naver.com">kimwh564@naver.com</a></div>
+        </div>
+        <div>
+          <div class="k">Phone</div>
+          <div class="v">010 · 8780 · 9756</div>
+        </div>
+        <div>
+          <div class="k">Location</div>
+          <div class="v">서울특별시 동작구</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <footer>
+        <div>김지혜 · JI HYE, KIM · 金知慧</div>
+        <div>© 2026 · Updated May 2026</div>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============== PROJECT DETAIL SHEET ============== -->
+<div class="sheet-overlay" id="sheet-overlay">
+  <div class="sheet" id="sheet">
+    <div class="sheet-head">
+      <div class="sheet-cat" id="sheet-cat">Project</div>
+      <button class="sheet-close" id="sheet-close" aria-label="Close">✕</button>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // PROJECT DATA — full Problem/Action/Result detail
+  // ============================================================
+  const PROJECTS = [
+    {
+      id: 'jira-as',
+      cat: 'EV Operations',
+      catClass: 'cat-evcharge',
+      org: '현대엔지니어링 EVC센터 · 2025',
+      title: 'JIRA 기반 A/S 접수·대응 체계 구축',
+      sub: '메신저·전화·엑셀로 분산되어있던 A/S를 단일 시스템으로 통합. 장애 데이터를 자산으로 바꾸다.',
+      result: '단일 시스템 운영 정착',
+      stats: [
+        { n: '4 → 1', l: '접수 채널 통합 (메신저·전화·엑셀 → JIRA)' },
+        { n: '5단계', l: '접수→분석→제조사조치→모니터링→종결 표준화' },
+        { n: '품질회의', l: '제조사·충전소·장애 유형별 가시화 자료로 활용' },
+      ],
+      problem: 'EV 충전 인프라 확대로 충전기 장애·결제 오류·통신 불량 이슈가 다발했습니다. 초기 A/S 접수가 메신저·전화·엑셀로 분산되어 중복 접수, 처리 경과 공유 부족, 담당자별 대응 편차, 제조사 커뮤니케이션 비체계, 장애 데이터 자산화 어려움이 누적되고 있었습니다.',
+      actions: [
+        '기존 A/S 접수·처리 흐름 파악 및 누락·중복 정보 프로세스 맵 정리',
+        '필수 입력 항목 정의 (충전기 ID, 시간대, 결제 방식, 차량 정보, 오류 코드 등) 및 JIRA 이슈 폼 설계',
+        '장애 유형별 카테고리·태그 체계 설계 (고장·통신·결제·사용자 조작 오류 구분)',
+        '관제·CS·현장·제조사 권한 및 워크플로우 지정, 이슈 상태 표준화 (접수→분석중→제조사 조치중→모니터링→종결)',
+        '도입 초기 직접 등록·교육·가이드 제공으로 사용 정착',
+      ],
+      learned: '운영 관점에서 A/S 흐름을 구조 분석하고 JIRA를 활용해 프로세스를 재설계. 사후 대응을 넘어 품질 개선으로 연결하는 사고. 다부서가 공통 시스템에서 협업하도록 설계하는 능력.',
+      skills: ['JIRA', 'Process Design', 'Workflow', 'Data 자산화', '다부서 협업'],
+    },
+    {
+      id: 'ecu-connector',
+      cat: 'Quality',
+      catClass: 'cat-quality',
+      org: '패커드코리아 · 2022',
+      title: 'ECU 커넥터 불량 개선 및 통합 설계',
+      sub: '접점 불량 90% 감소, 통합 설계로 연 2,400만원 원가 절감. 그리고 SPLICE Double Clamping 자체 검증.',
+      result: '연 2,400만원 절감 + 고객 품질 승인',
+      stats: [
+        { n: '90%↓', l: '접점 불량률 감소' },
+        { n: '2,400만원', l: '연간 원가 절감 (커넥터 통합 설계)' },
+        { n: '승인 획득', l: 'SPLICE Double Clamping 고객 품질 승인' },
+      ],
+      problem: 'ECU 커넥터에서 접점 불량이 반복 발생해 양산 라인의 품질 리스크가 높았습니다. 신규 Assy 케이블의 조립성 문제도 함께 해결해야 했고, SPLICE Double Clamping 구조에 대한 신뢰성 시험은 자체 설계가 필요한 상황이었습니다.',
+      actions: [
+        'ECU 커넥터 접점 불량 원인 분석 후 대체 단자 도입을 통해 불량률 90% 이상 감소',
+        '신규 Assy 케이블 조립성 개선 설계로 품질 리스크 해소',
+        '도어–루프 커넥터 통합 설계로 연 2,400만원 원가 절감',
+        'SPLICE Double Clamping 구조에 대한 자체 신뢰성 시험 설계 및 고객 승인 획득',
+        '협력사 기술 협의 및 RFQ 대응, COST 자료 작성, BOM DATA 생성 및 ERP 등록',
+      ],
+      learned: '도면 한 장이 양산 라인의 비용·품질·납기로 곧장 환산된다는 감각. 신뢰성 시험을 자체 설계하고 고객 승인까지 끌어내는 정량적 검증 역량.',
+      skills: ['하네스 회로 설계', 'COST 분석', '신뢰성 시험', 'Validation', 'BOM·ERP', '벤치마킹'],
+    },
+    {
+      id: 'cable-weight',
+      cat: 'Quality',
+      catClass: 'cat-quality',
+      org: '아이파킹 · 2024',
+      title: '급속 충전기 케이블 중량·내구성 개선',
+      sub: '피닉스·EL·유라 시제품을 직접 비교 검증. 사용자 편의성과 라이프사이클 비용을 동시에 풀다.',
+      result: '편의성과 내구성 동시 만족 사양 정립',
+      stats: [
+        { n: '3社', l: '제조사 시제품 비교 (피닉스·EL·유라)' },
+        { n: '5축', l: '중량·유연성·내구성·온도 특성·인장 강도 평가' },
+        { n: '레퍼런스', l: '향후 충전소 구축 표준 사양 정립' },
+      ],
+      problem: '굵고 무거운 급속 케이블로 사용자 피로·불편이 컸고, 케이블 처짐, 손잡이 파손, 커넥터 단선 등 내구성 이슈가 반복되었습니다. 프리미엄 충전소 확대로 편의성과 내구성을 동시에 만족하는 사양이 필요했습니다.',
+      actions: [
+        '기존 문제(무게·경도·꺾임·피복 손상·커넥터 피로도) 정리 및 현장 민원·기사 피드백 수집',
+        '제조사 제안 사양(도체 굵기·피복 재질·온도 특성·인장 강도·최소곡률 반경 등) 평가 기준표 작성',
+        '시제품을 현장 충전소에 직접 설치 테스트, 온도 및 설치 환경별 유연성·편의성 점검',
+        '포장·배선 경로·거치대 궁합 등 실사용 조건 통합 평가',
+        '최종 사양에 대해 제조사와 납기·MOQ·A/S 협의, 구축 일정 조율',
+      ],
+      learned: '사용자 경험 관점에서 개선을 도출하고, 정량·정성 평가를 비교해 다수 이해관계자의 의견에서 공통분모를 찾아내는 능력. 라이프사이클 비용 시각.',
+      skills: ['시제품 비교 검증', '사양 평가', '제조사 협상', '현장 테스트', 'UX 관점'],
+    },
+    {
+      id: 'env-policy',
+      cat: 'Policy',
+      catClass: 'cat-policy',
+      org: '아이파킹 · 2024–25',
+      title: '환경부 스마트제어 보조금 정책 대응',
+      sub: '정책 발표부터 적용까지 짧은 시일. 펌웨어, 계약, 신청 프로세스를 동시에 재설계해 사업 지연 리스크를 제거.',
+      result: '보조금 연속성 유지 + 전사 적용',
+      stats: [
+        { n: 'PLC 기반', l: '충전 종료·재충전 방지 펌웨어 반영' },
+        { n: '전면 수정', l: '협력업체 계약 구조 재설계' },
+        { n: '0건', l: '사업 지연 리스크 발생' },
+      ],
+      problem: '2025년 환경부가 스마트제어 완속충전기 보조금 기준을 개정. 기존 공사비 외 스탠드폴·캐노피 등 부자재 비용 포함 계약 구조와 PLC 기반 충전 종료·재충전 방지·사용자 설정 기능 구현이 요구되었습니다. 짧은 시일 내 발표·적용으로 기존 계약·충전기로는 대응 불가능한 상황이었습니다.',
+      actions: [
+        '환경부 간담회 참석 후 정책 변경 정리 및 사내 보고, 실행 계획으로 전환',
+        '제조사에 PLC 기반 충전 종료·재충전 방지 기능 구현 요청, 펌웨어 개선 요구서 직접 전달, QA 주도',
+        '협력업체 계약 구조 전면 수정, 시공사·부자재 공급사와 다회 협의 및 조건 정리',
+        '보조금 신청서류 포맷 재설계, 내부 시스템 흐름 재정비',
+        '제조사 펌웨어에 환경부 요구사항 반영, QA 기반 기능 적용 체계 마련',
+      ],
+      learned: '정책 해석력. 짧은 시일에도 실행 가능한 프로세스를 설계하는 능력. 기술과 비기술 부서 사이에서 요구사항을 번역해 협상하는 커뮤니케이션 능력.',
+      skills: ['정책 분석', '실행 프로세스 설계', '기술 협상', '계약 재설계', 'QA'],
+    },
+    {
+      id: 'bidding',
+      cat: 'Purchasing',
+      catClass: 'cat-purchase',
+      org: '아이파킹 · 2024–25',
+      title: '경쟁입찰을 통한 원가절감',
+      sub: '단일 제조사 의존 구조를 깨고, 자사 인프라를 협상 카드로. 단가 12.5% 인하 + 연 1억원+ 절감.',
+      result: '연 1억원+ 원가 절감',
+      stats: [
+        { n: '12.5%', l: '완속 충전기 단가 인하' },
+        { n: '1억원+', l: '연간 원가 절감' },
+        { n: '5,500기', l: '연간 발주 (완속 5,000 + 급속 500)' },
+      ],
+      problem: '대규모 충전기 도입을 앞두고 단일 제조사 의존이 단가 인상과 A/S 협상력 부족으로 이어지고 있었습니다. 연간 발주 완속 약 5,000기, 급속 약 500기 규모. 공급사 다변화와 경쟁 도입이 필요한 시점이었습니다.',
+      actions: [
+        '제조사별 제안서·기술사양서 정리, 펌웨어·UI·A/S·납기 정량 비교표 작성',
+        '가격·납기·A/S·기술 스펙 4개 항목 정량 평가 기준 수립 및 분석 리포트 작성',
+        '최종 후보 대상 계약 조건·펌웨어·QA 범위 조율 및 단가 협상',
+        '단가 외 운영 품질 유지를 위한 기술 품질 기준서 작성 및 협력사 품질 검토',
+        '자사 인프라(전국 거점 부지)를 협상 카드로 활용, 폴스타·포드·마세라티·기아 등 완성차 브랜드 전략 사업성 극대화',
+      ],
+      learned: '공급사 평가·선정 역량. 운영 품질을 지키면서 원가를 절감하는 균형감. 문서화·보고 역량으로 의사결정자에게 의사결정 근거를 제공하는 능력.',
+      skills: ['경쟁입찰 설계', '단가협상', '평가표 설계', '계약 관리', '브랜드 협업'],
+    },
+    {
+      id: 'polestar',
+      cat: 'EV Strategy',
+      catClass: 'cat-evcharge',
+      org: '아이파킹 · 2024–25',
+      title: '완성차 브랜드 전용 충전 솔루션',
+      sub: '폴스타 시작으로 볼보·마세라티 확장. UI/UX·CS·운영 시스템을 한 패키지로.',
+      result: '브랜드 전용 충전 사업 모델 확립',
+      stats: [
+        { n: '4 브랜드', l: '폴스타·볼보·마세라티·기아' },
+        { n: 'CS 정립', l: '브랜드 충전 정책 및 고객 대응 체계' },
+        { n: 'UI/UX', l: '앱·CMS 기능 기획서 작성' },
+      ],
+      problem: '완성차 브랜드별 충전 경험을 차별화하면서도 운영은 단일 인프라에서 효율적으로 가져가야 하는 과제. 충전기 운영, CS 대응, 펌웨어, 앱 UX가 모두 정렬되어야 했습니다.',
+      actions: [
+        '폴스타·볼보·마세라티 등 브랜드사 충전 정책 기획 및 고객 대응 체계 정립',
+        '충전기 CMS·앱 기능 기획서 작성, 기능 QA 및 테스트 주도',
+        '제조사 펌웨어 취득·업데이트 지원, 펌웨어 QA 및 기능 검증',
+        '충전소 구축 프로젝트 일정 관리 및 협력사 조율',
+        '운영 데이터 분석 및 운영 프로세스 개선',
+      ],
+      learned: '제품 기획·운영·고객 대응을 같은 사람이 잡을 때 만들어지는 일관성. 다양한 브랜드 톤을 운영 시스템 안에서 정렬하는 능력.',
+      skills: ['브랜드 사업기획', 'UI/UX 기획', '펌웨어 QA', '운영 프로세스', '협력사 조율'],
+    },
+    {
+      id: 'robot-qa',
+      cat: 'Robotics',
+      catClass: 'cat-robot',
+      org: '우아한형제들 · 2023',
+      title: '배달로봇 QA 및 이상 동작 개선',
+      sub: '도로교통법·건축법 직접 해석으로 로봇이 다닐 길을 그리고, 주행 데이터로 이상 원인을 찾다.',
+      result: '서비스 안정성 향상 + 운영 가이드 정립',
+      stats: [
+        { n: '법령 해석', l: '도로교통법·건축법 직접 검토' },
+        { n: '알파 QA', l: '주행 데이터 기반 이상 동작 분석' },
+        { n: 'JIRA', l: '이슈 관리 체계 구축' },
+      ],
+      problem: '자율주행 배달로봇이 다닐 수 있는 길과 환경이 법령·현장 조건마다 달랐고, 알파 테스트 단계에서 경로 이탈·센서 인식 오류가 반복되어 서비스 안정성을 보장하기 어려웠습니다.',
+      actions: [
+        '자율주행 로봇의 주행 허용 구역 및 관련 법령(도로교통법·건축법 등) 검토',
+        '서비스 가능 지역 사전 분석 및 관련 조항 적용 여부 판단, 운영 가이드 및 주행 로직 개선',
+        '자율주행 배달로봇 알파 테스트 QA 및 기능 검증',
+        '로봇 주행 데이터 분석 및 이상 동작 원인 분석',
+        'JIRA 기반 이슈 등록·관리, 개발팀·제조사 협업으로 기능 개선',
+        'CS 대응, 외부 계약자 대상 서비스 설명 및 운영 매뉴얼 제작',
+      ],
+      learned: '비기술 영역(법령)을 기술 의사결정으로 번역하는 능력. 데이터에서 이상 동작 패턴을 찾고 개발팀·제조사와 협업해 코드·하드웨어로 풀어내는 협업력.',
+      skills: ['법령 해석', '주행 QA', '이상 패턴 분석', 'JIRA', 'CS', '운영 매뉴얼'],
+    },
+    {
+      id: 'commercial-vehicle',
+      cat: 'Design',
+      catClass: 'cat-design',
+      org: '에이팸 · 2019–22',
+      title: '신규 3.5톤 상용차 하네스 개발',
+      sub: 'VINFAST 베트남 신규 공장 양산 대응까지. 도면이 라인의 비용·품질·일정으로 환산되는 전 과정.',
+      result: '양산 안정화 + 베트남 공장 초기 설계 안정화',
+      stats: [
+        { n: '3.5톤', l: '신규 상용차 하네스 개발' },
+        { n: 'VINFAST', l: '베트남 신규 공장 대응' },
+        { n: '사전 차단', l: '양산 리스크 사전 차단 검증' },
+      ],
+      problem: '신규 3.5톤 상용차 하네스를 처음부터 개발해야 했고, 동시에 VINFAST 베트남 신규 생산공장의 초기 설계 안정화도 함께 진행. 양산 리스크를 사전에 차단해야 했습니다.',
+      actions: [
+        '승용차·상용차 와이어링 하네스 회로 설계, 경로 설계, 제조 설계 수행',
+        'RFQ 대응 및 견적 산출, 원가 검토 및 COST 자료 작성',
+        'Proto Sample 제작 및 부품 사양 검토, 신규 자재 선정',
+        '하네스 도면 작성·관리, BOM 정리, 설계 변경 관리',
+        '베트남 신규 공장 생산 가능성 검토 및 양산 대응 설계 검토',
+        '고객사 Design Review 대응 및 설계 변경 업무 수행',
+        '시제품 제작 및 실차 조립 테스트로 설계 검증',
+      ],
+      learned: '신규 차종을 처음부터 끝까지 책임지는 흐름 경험. 해외 신규 공장의 초기 설계 안정화에서 오는 양산 리스크 감각. 회로 설계자가 원가·일정·품질을 함께 보는 시야.',
+      skills: ['회로·경로·제조 설계', 'RFQ·COST', '프로토 샘플', 'BOM 관리', '실차 검증', 'DR 대응'],
+    },
+  ];
+
+  // ============================================================
+  // RENDER PROJECT GRID
+  // ============================================================
+  const grid = document.getElementById('projects-grid');
+  PROJECTS.forEach(p => {
+    const card = document.createElement('div');
+    card.className = `pj ${p.catClass}`;
+    card.innerHTML = `
+      <div class="pj-cat"><span class="swatch"></span>${p.cat}</div>
+      <div class="pj-title">${p.title}</div>
+      <div class="pj-sub">${p.sub}</div>
+      <div class="pj-result">Result</div>
+      <div class="pj-headline">${p.result}</div>
+      <div class="pj-foot">
+        <span class="pj-org">${p.org}</span>
+        <span class="pj-arrow">자세히 보기 →</span>
+      </div>
+    `;
+    card.addEventListener('click', () => openSheet(p));
+    grid.appendChild(card);
+  });
+
+  // ============================================================
+  // SHEET (project detail)
+  // ============================================================
+  const overlay = document.getElementById('sheet-overlay');
+  const sheet   = document.getElementById('sheet');
+  const body    = document.getElementById('sheet-body');
+  const catEl   = document.getElementById('sheet-cat');
+
+  function openSheet(p) {
+    sheet.className = 'sheet ' + p.catClass;
+    catEl.textContent = p.cat;
+    catEl.style.color = `var(--cat-color)`;
+
+    body.innerHTML = `
+      <h2>${p.title}</h2>
+      <p class="lede">${p.sub}</p>
+
+      <div class="sheet-stats">
+        ${p.stats.map(s => `<div><div class="n">${s.n}</div><div class="l">${s.l}</div></div>`).join('')}
+      </div>
+
+      <div class="sheet-grid">
+        <h3>Background<br>배경</h3>
+        <div class="narrative">${p.problem}</div>
+      </div>
+
+      <div class="sheet-grid">
+        <h3>Actions<br>실행</h3>
+        <ul>
+          ${p.actions.map((a, i) => `<li><span class="ix">${String(i+1).padStart(2,'0')}</span><span>${a}</span></li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="sheet-grid">
+        <h3>Outcome<br>획득 역량</h3>
+        <div class="narrative">
+          ${p.learned}
+          <div class="sheet-skills">
+            ${p.skills.map(s => `<span class="kw">${s}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('sheet-close').addEventListener('click', closeSheet);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeSheet(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+  // ============================================================
+  // NAV active state on scroll
+  // ============================================================
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = ['career', 'projects', 'capabilities', 'contact'].map(id => document.getElementById(id));
+  function updateActive() {
+    const y = window.scrollY + 120;
+    let active = sections[0];
+    sections.forEach(s => { if (s && s.offsetTop <= y) active = s; });
+    navLinks.forEach(l => {
+      l.classList.toggle('active', active && l.getAttribute('href') === '#' + active.id);
+    });
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+
+  // ============================================================
+  // Smooth scroll on anchor click (with fixed-nav offset)
+  // ============================================================
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 60;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

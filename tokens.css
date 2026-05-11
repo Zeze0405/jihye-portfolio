@@ -1,0 +1,238 @@
+/* ==========================================================================
+   SungMyeongJae HR Portfolio — Design Tokens
+   Single source of truth. Mirrors the in-page Tailwind config + :root vars.
+   ========================================================================== */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+  /* ---------- BRAND COLOR (cyan-teal) ---------- */
+  --primary-50:  #e6f4fa;
+  --primary-100: #cce9f5;
+  --primary-200: #99d3eb;
+  --primary-400: #33a8d4;
+  --primary-500: #0d9abf;   /* primary brand */
+  --primary-600: #0b87a8;
+  --primary-700: #096d88;
+  --primary-900: #054058;
+
+  --primary:       var(--primary-500);
+  --primary-light: var(--primary-50);
+
+  /* ---------- NEUTRALS (slate) ---------- */
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50:  #f8fafc;
+
+  --gray-200: #e5e7eb;
+  --gray-100: #f3f4f6;
+  --gray-50:  #f9fafb;
+
+  /* ---------- SEMANTIC FG / BG ---------- */
+  --fg-1: var(--slate-900);   /* headings */
+  --fg-2: var(--slate-700);   /* sub-headings, dark body */
+  --fg-3: var(--slate-500);   /* body, supporting copy */
+  --fg-4: var(--slate-400);   /* meta, disabled */
+  --fg-on-primary: #ffffff;
+
+  --bg-page: hsl(210, 20%, 96%);
+  --bg-card: #ffffff;
+  --bg-subtle: var(--slate-50);
+  --bg-hero-gradient: linear-gradient(145deg, #f5f9ff 0%, #ffffff 40%, #fefcf9 100%);
+  --bg-dark-modal: var(--slate-900);   /* DX case modal only */
+
+  --border:        hsl(210, 15%, 90%);
+  --border-strong: var(--slate-200);
+
+  /* ---------- SEMANTIC ACCENTS ---------- */
+  --success-50:  #ecfdf5;
+  --success-200: #a7f3d0;
+  --success-500: #10b981;
+  --success-600: #059669;
+  --success-700: #047857;     /* "구직 중", recruiting metric */
+
+  --danger-50:  #fff1f2;
+  --danger-100: #ffe4e6;
+  --danger-500: #f43f5e;
+  --danger-600: #e11d48;       /* risk reduction metric */
+
+  --info-50:   var(--primary-50);
+  --info-500:  var(--primary-500);
+
+  /* ---------- TYPE — base ---------- */
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont,
+               'Segoe UI', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --tracking-tight:  -0.02em;   /* default for KR */
+  --tracking-normal: 0;
+  --tracking-label:  0.18em;    /* section labels */
+
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  --weight-normal:  400;
+  --weight-medium:  500;
+  --weight-semi:    600;
+  --weight-bold:    700;
+  --weight-black:   900;
+
+  /* ---------- TYPE — scale ---------- */
+  --text-3xs: 0.625rem;   /* 10px — micro labels */
+  --text-2xs: 0.65rem;    /* 10.4px — section label */
+  --text-xs:  0.75rem;    /* 12px — meta, chips */
+  --text-sm:  0.875rem;   /* 14px — body, nav */
+  --text-base:1rem;       /* 16px — default body */
+  --text-lg:  1.125rem;   /* 18px — sub-hero */
+  --text-xl:  1.25rem;    /* 20px — card titles */
+  --text-2xl: 1.5rem;     /* 24px — section title (mobile) */
+  --text-3xl: 1.875rem;   /* 30px — section title (desktop) */
+  --text-4xl: 2.25rem;    /* 36px — metric numbers */
+  --text-5xl: 3rem;       /* 48px — hero (md) */
+  --text-6xl: 3.75rem;    /* 60px — hero (lg) */
+
+  /* ---------- RADII ---------- */
+  --radius-sm:  6px;
+  --radius:     8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;     /* rounded-2xl */
+  --radius-xl:  24px;     /* rounded-3xl */
+  --radius-2xl: 32px;     /* rounded-4xl — hero / modal */
+  --radius-3xl: 40px;     /* rounded-5xl */
+  --radius-full: 9999px;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-sm:    0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow:       0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md:    0 4px 16px -2px rgba(13, 154, 191, 0.08);
+  --shadow-lift:  0 12px 32px -4px rgba(13, 154, 191, 0.15);
+  --shadow-glow:  0 0 20px rgba(13, 154, 191, 0.12);
+  --shadow-2xl:   0 25px 50px -12px rgba(15, 23, 42, 0.25);
+
+  /* ---------- MOTION ---------- */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast:    0.15s;
+  --duration:         0.25s;
+  --duration-slow:    0.3s;
+  --duration-reveal:  0.7s;
+
+  /* ---------- LAYOUT ---------- */
+  --sidebar-w: 224px;
+  --sidebar-collapsed-w: 64px;
+  --header-h-mobile: 56px;
+}
+
+/* ==========================================================================
+   SEMANTIC ELEMENTS — usable directly
+   ========================================================================== */
+
+html, body {
+  font-family: var(--font-sans);
+  letter-spacing: var(--tracking-tight);
+  background: var(--bg-page);
+  color: var(--fg-1);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+}
+
+h1, .h1 {
+  font-size: clamp(1.875rem, 4vw, 3.75rem);
+  font-weight: var(--weight-black);
+  line-height: var(--leading-tight);
+  color: var(--fg-1);
+  letter-spacing: var(--tracking-tight);
+  word-break: keep-all;
+}
+
+h2, .h2 {
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: var(--weight-black);
+  line-height: var(--leading-snug);
+  color: var(--fg-1);
+}
+
+h3, .h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-black);
+  color: var(--fg-1);
+}
+
+h4, .h4 {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--fg-2);
+}
+
+p {
+  font-size: var(--text-sm);
+  color: var(--fg-3);
+  line-height: var(--leading-relaxed);
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-700); }
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+/* Section label — kicker above every section title */
+.section-label {
+  font-size: var(--text-2xs);
+  font-weight: 800;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* Metric number — 핵심 숫자 표기 */
+.metric-number {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-black);
+  line-height: 1;
+  color: var(--primary);
+}
+.metric-number .unit {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+/* Pill / chip */
+.chip {
+  display: inline-flex; align-items: center;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-strong);
+  background: var(--gray-50);
+  color: var(--fg-3);
+}
+.chip--brand   { background: var(--primary-50); color: var(--primary); border-color: var(--primary-200); }
+.chip--success { background: var(--success-50); color: var(--success-700); border-color: var(--success-200); }
+.chip--danger  { background: var(--danger-50);  color: var(--danger-600);  border-color: var(--danger-100); }
